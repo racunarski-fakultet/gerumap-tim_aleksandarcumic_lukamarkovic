@@ -1,7 +1,7 @@
-package gerumap.app.core.swing;
+package dsw.gerumap.app.gui.swing;
 
-import gerumap.app.core.gui.Gui;
-import gerumap.app.core.swing.view.MainFrame;
+import dsw.gerumap.app.core.Gui;
+import dsw.gerumap.app.gui.swing.view.MainFrame;
 
 public class SwingGui implements Gui {
 

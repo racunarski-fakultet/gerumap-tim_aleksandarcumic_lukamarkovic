@@ -1,16 +1,17 @@
-package gerumap.app.core.swing.controller;
+package dsw.gerumap.app.gui.swing.controller;
 
 import javax.swing.*;
 import java.net.URL;
 
-public abstract class AbstractRudokAction extends AbstractAction {
+public abstract class AbstractGerumapAction extends AbstractAction {
 
     public Icon loadIcon(String fileName){
 
         URL imageURL = getClass().getResource(fileName);
         Icon icon = null;
 
-        if (imageURL != null) {
+        if(imageURL != null){
+
             icon = new ImageIcon(imageURL);
         }
         else {
@@ -18,7 +19,5 @@ public abstract class AbstractRudokAction extends AbstractAction {
         }
         return icon;
     }
-
-
 
 }

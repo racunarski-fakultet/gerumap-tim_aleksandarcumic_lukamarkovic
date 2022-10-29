@@ -1,4 +1,4 @@
-package gerumap.app.core.gui;
+package dsw.gerumap.app.core;
 
 //@Setter
 //@NoArgsConstructor

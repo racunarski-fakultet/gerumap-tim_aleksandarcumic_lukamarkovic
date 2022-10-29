@@ -1,4 +1,4 @@
-package gerumap.app.core.swing.controller;
+package dsw.gerumap.app.gui.swing.controller;
 
 public class ActionManager {
 
