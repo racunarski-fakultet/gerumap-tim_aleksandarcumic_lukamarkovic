@@ -30,5 +30,4 @@ public class AppCore extends ApplicationFramework {
 
     }
 
-
 }
