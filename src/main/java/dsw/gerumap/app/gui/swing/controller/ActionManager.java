@@ -1,9 +1,12 @@
 package main.java.dsw.gerumap.app.gui.swing.controller;
 
+
 public class ActionManager {
 
     private ExitAction exitAction;
     private NewProjectAction newProjectAction;
+
+    private HelpAction helpAction;
 
     public ActionManager(){
         initialiseActions();
@@ -12,6 +15,7 @@ public class ActionManager {
     private void initialiseActions(){
         exitAction = new ExitAction();
         newProjectAction = new NewProjectAction();
+        helpAction = new HelpAction();
     }
 
     public ExitAction getExitAction() {
@@ -28,5 +32,13 @@ public class ActionManager {
 
     public void setNewProjectAction(NewProjectAction newProjectAction) {
         this.newProjectAction = newProjectAction;
+    }
+
+    public HelpAction getHelpAction() {
+        return helpAction;
+    }
+
+    public void setHelpAction(HelpAction helpAction) {
+        this.helpAction = helpAction;
     }
 }
