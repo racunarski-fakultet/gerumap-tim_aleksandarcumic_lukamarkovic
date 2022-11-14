@@ -4,6 +4,8 @@ import main.java.dsw.gerumap.app.gui.swing.tree.model.MapTreeItem;
 import main.java.dsw.gerumap.app.gui.swing.tree.view.MapTreeView;
 import main.java.dsw.gerumap.app.repository.composite.MapNode;
 import main.java.dsw.gerumap.app.repository.composite.MapNodeComposite;
+import main.java.dsw.gerumap.app.repository.implementation.Element;
+import main.java.dsw.gerumap.app.repository.implementation.MapaUma;
 import main.java.dsw.gerumap.app.repository.implementation.Project;
 import main.java.dsw.gerumap.app.repository.implementation.ProjectExplorer;
 
@@ -24,6 +26,8 @@ public class MapTreeImplementation implements MapTree {
         return treeView;
     }
 
+
+
     @Override
     public void addChild(MapTreeItem parent) {
 
@@ -38,6 +42,16 @@ public class MapTreeImplementation implements MapTree {
     }
 
     @Override
+    public void removeChild(MapTreeItem child) {
+        if(child.getMapNode() instanceof ProjectExplorer)
+            return;
+        child.removeAllChildren();
+        child.removeFromParent();
+        SwingUtilities.updateComponentTreeUI(treeView);
+
+    }
+
+    @Override
     public MapTreeItem getSelectedNode() {
         return (MapTreeItem) treeView.getLastSelectedPathComponent();
     }
@@ -45,6 +59,10 @@ public class MapTreeImplementation implements MapTree {
     private MapNode createChild(MapNode parent) {
         if (parent instanceof ProjectExplorer)
             return  new Project("Project" +new Random().nextInt(100), parent);
+        else if(parent instanceof Project)
+            return new MapaUma("Mapa uma"+new Random().nextInt(100), parent);
+        else if(parent instanceof MapaUma)
+            return new Element("Element"+new Random().nextInt(100), parent);
         return null;
     }
 

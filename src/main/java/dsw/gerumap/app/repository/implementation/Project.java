@@ -21,7 +21,7 @@ public class Project extends MapNodeComposite {
 
     @Override
     public void removeChild(MapNode child) {
-        if (child != null &&  child instanceof MapaUma){
+        if (child != null &&  child instanceof MapaUma && this.getChildren()!=null){
             MapaUma mapaUma = (MapaUma) child;
             if (!this.getChildren().contains(mapaUma)){
                 this.getChildren().remove(mapaUma);
