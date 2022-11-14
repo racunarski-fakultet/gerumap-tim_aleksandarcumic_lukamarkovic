@@ -1,10 +1,17 @@
 package main.java.dsw.gerumap.app.gui.swing.view;
 
+import lombok.Getter;
+import lombok.Setter;
+import main.java.dsw.gerumap.app.core.ApplicationFramework;
 import main.java.dsw.gerumap.app.gui.swing.controller.ActionManager;
+import main.java.dsw.gerumap.app.gui.swing.tree.MapTree;
+import main.java.dsw.gerumap.app.gui.swing.tree.MapTreeImplementation;
 
 import javax.swing.*;
 import java.awt.*;
 
+@Getter
+@Setter
 public class MainFrame extends JFrame {
 
     private static MainFrame instance;
@@ -12,12 +19,15 @@ public class MainFrame extends JFrame {
     private JMenuBar menu;
     private JToolBar toolBar;
 
+    private MapTree mapTree;
+
     private  MainFrame () {
 
     }
 
     private void initialise () {
         actionManager = new ActionManager();
+        mapTree = new MapTreeImplementation();
         initialiseGui();
 
     }
@@ -39,10 +49,13 @@ public class MainFrame extends JFrame {
         toolBar = new Toolbar();
         add(toolBar, BorderLayout.NORTH);
 
+        JTree projectExplorer = mapTree.generateTree(ApplicationFramework.getInstance().getMapRepository().getProjectExplorer());
+
+        JScrollPane scroll=new JScrollPane(projectExplorer);
+
         JPanel desktop = new JPanel();
 
-        JScrollPane scroll = new JScrollPane();
-        scroll.setMinimumSize(new Dimension(200, 150));
+
         JSplitPane split = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, scroll, desktop);
         getContentPane().add(split, BorderLayout.CENTER);
         split.setDividerLocation(250);

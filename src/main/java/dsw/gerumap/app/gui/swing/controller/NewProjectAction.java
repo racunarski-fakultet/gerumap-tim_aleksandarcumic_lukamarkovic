@@ -1,5 +1,8 @@
 package main.java.dsw.gerumap.app.gui.swing.controller;
 
+import main.java.dsw.gerumap.app.gui.swing.tree.model.MapTreeItem;
+import main.java.dsw.gerumap.app.gui.swing.view.MainFrame;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
@@ -17,7 +20,7 @@ public class NewProjectAction extends AbstractGerumapAction {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
-        int label = new Random().nextInt(100);
+        MapTreeItem selected = (MapTreeItem) MainFrame.getInstance().getMapTree().getSelectedNode();
+        MainFrame.getInstance().getMapTree().addChild(selected);
     }
 }

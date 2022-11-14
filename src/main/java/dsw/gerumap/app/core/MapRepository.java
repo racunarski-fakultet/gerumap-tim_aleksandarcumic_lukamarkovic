@@ -8,7 +8,7 @@ public interface MapRepository {
 
     ProjectExplorer getProjectExplorer();
 
-    Void addChild(MapNodeComposite parent, MapNode child);
+    void addChild(MapNodeComposite parent, MapNode child);
 
 
 }

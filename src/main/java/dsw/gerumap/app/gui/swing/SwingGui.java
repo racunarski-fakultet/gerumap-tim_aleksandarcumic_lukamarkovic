@@ -7,6 +7,10 @@ public class SwingGui implements Gui {
 
     private MainFrame instance;
 
+    public SwingGui(){
+
+    }
+
     @Override
     public void start() {
         instance = MainFrame.getInstance();

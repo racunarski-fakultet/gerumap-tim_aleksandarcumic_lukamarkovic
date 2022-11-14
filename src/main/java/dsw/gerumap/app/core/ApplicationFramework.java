@@ -2,20 +2,43 @@ package main.java.dsw.gerumap.app.core;
 
 //@Setter
 //@NoArgsConstructor
-public abstract class ApplicationFramework {
+
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+public class ApplicationFramework {
+
+
 
     protected Gui gui;
 
-    public ApplicationFramework() {
+    protected MapRepository mapRepository;
+
+
+
+
+
+    public void run (){
+        this.gui.start();
     }
 
-    public abstract void run ();
+    public void initialise (Gui gui, MapRepository mapRepository) {
 
-    public void initialise (Gui gui) {
         this.gui = gui;
+        this.mapRepository = mapRepository;
     }
 
-    public void setGui(Gui gui) {
-        this.gui = gui;
+
+    private static ApplicationFramework instance;
+    public static ApplicationFramework getInstance(){
+
+        if(instance==null) {
+            instance = new ApplicationFramework();
+        }
+        return instance;
+
     }
+
 }
