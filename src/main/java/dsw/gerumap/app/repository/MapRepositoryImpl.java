@@ -1,12 +1,11 @@
 package main.java.dsw.gerumap.app.repository;
 
-import main.java.dsw.gerumap.app.core.MapRepository;
 import main.java.dsw.gerumap.app.repository.composite.MapNode;
 import main.java.dsw.gerumap.app.repository.composite.MapNodeComposite;
 import main.java.dsw.gerumap.app.repository.implementation.ProjectExplorer;
 
 
-public class MapRepositoryImpl extends MapRepository {
+public class MapRepositoryImpl {
 
     private ProjectExplorer projectExplorer;
 
@@ -19,6 +18,11 @@ public class MapRepositoryImpl extends MapRepository {
     }
 
     public void addChild(MapNodeComposite parent, MapNode child) {
-        //TODO: implement add Child method
+        if(child!=null){
+            parent.addChild(child);
+        }
     }
+
+
+
 }

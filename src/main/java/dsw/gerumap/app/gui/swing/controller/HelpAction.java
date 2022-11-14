@@ -14,7 +14,7 @@ public class HelpAction extends AbstractGerumapAction{
     public HelpAction(){
         putValue(ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_H, ActionEvent.ALT_MASK));
         putValue(SMALL_ICON, new ImageIcon("src/main/resources/images/Help1.png"));
-        putValue(NAME, "Help");
+        putValue(NAME, "Edit");
         putValue(SHORT_DESCRIPTION, "Help");
 
     }
