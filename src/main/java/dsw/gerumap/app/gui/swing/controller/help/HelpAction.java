@@ -1,13 +1,14 @@
-package main.java.dsw.gerumap.app.gui.swing.controller;
+package main.java.dsw.gerumap.app.gui.swing.controller.help;
 
+import main.java.dsw.gerumap.app.gui.swing.controller.AbstractGerumapAction;
+import main.java.dsw.gerumap.app.gui.swing.controller.help.Help;
 import main.java.dsw.gerumap.app.gui.swing.view.MainFrame;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 
-public class HelpAction extends AbstractGerumapAction{
+public class HelpAction extends AbstractGerumapAction {
 
 
 

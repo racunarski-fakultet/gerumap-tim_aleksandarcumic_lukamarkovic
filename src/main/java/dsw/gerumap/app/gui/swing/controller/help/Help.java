@@ -1,4 +1,4 @@
-package main.java.dsw.gerumap.app.gui.swing.controller;
+package main.java.dsw.gerumap.app.gui.swing.controller.help;
 
 import javax.swing.*;
 import java.awt.*;

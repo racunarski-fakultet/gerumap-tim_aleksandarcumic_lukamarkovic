@@ -1,24 +1,50 @@
 package main.java.dsw.gerumap.app.message.implementation;
 
-import main.java.dsw.gerumap.app.message.ErrorType;
+import lombok.Getter;
+import lombok.Setter;
 import main.java.dsw.gerumap.app.message.EventType;
 import main.java.dsw.gerumap.app.message.MessageGenerator;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.Flow;
+
+@Getter
+@Setter
+
 public class MessageGeneratorImplementation implements MessageGenerator {
 
+    private List<MessageGenerator> subscribers = new ArrayList<>();
+    private Message m;
+
     @Override
-    public Message generate(EventType eventType) {
+    public void generate(EventType eventType) {
         if(eventType.equals(EventType.CANNOTADDCHILD)){
-            return new Message("Ne mozete dodati dete elementu.", ErrorType.WARNING);
-            // probati da ubacim kasnije notify();
+            notify();
         }else if (eventType.equals(EventType.DELETEPROJEXPL)){
-            return new Message("Ne mozete obrisati project explorer.", ErrorType.ERROR);
+            m = new Message("Uspelo je", eventType);
         }else if (eventType.equals(EventType.NAMECANNOTBEEMPTY)){
-            return new Message("Ime ne moze biti prazno.", ErrorType.WARNING);
+            notify();
         }else if (eventType.equals(EventType.NODECANNOTBEDELETED)){
-            return new Message("Ovaj cvor ne moze biti obrisan", ErrorType.ERROR);
+            notify();
         }else{
-            return new Message("Nije moguce izvrsiti ovu akciju.", ErrorType.ERROR);
+            notify();
         }
     }
+
+    public void addSubscriber(MessageGenerator mg) {
+        subscribers.add(mg);
+    }
+
+    public void removeSubscriber(MessageGenerator mg) {
+        subscribers.remove(mg);
+    }
+
+    public void setMessage(Message m){
+        this.m = m;
+        for(MessageGenerator mg : this.subscribers){
+            mg.generate(this.m.et);
+        }
+    }
+
 }

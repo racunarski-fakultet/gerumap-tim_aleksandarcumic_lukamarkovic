@@ -1,24 +1,26 @@
 package main.java.dsw.gerumap.app.message.implementation;
 
-import main.java.dsw.gerumap.app.message.ErrorType;
+import lombok.Getter;
+import lombok.Setter;
 import main.java.dsw.gerumap.app.message.EventType;
 
+@Getter
+@Setter
 public class Message {
 
     String content;
-    ErrorType et;
+    EventType et;
 
-    public Message(String content, ErrorType et){
-        this.content = content;
+    public Message(String content, EventType et){
         this.et = et;
-
+        this.content = content;
     }
 
     public String getContent() {
         return content;
     }
 
-    public ErrorType getEt() {
+    public EventType getEt() {
         return et;
     }
 }
