@@ -2,6 +2,7 @@ package main.java.dsw.gerumap.app.gui.swing.controller;
 
 import lombok.Getter;
 import lombok.Setter;
+import main.java.dsw.gerumap.app.gui.swing.controller.error.ErrorAction;
 import main.java.dsw.gerumap.app.gui.swing.controller.help.HelpAction;
 
 @Getter
@@ -15,6 +16,8 @@ public class ActionManager {
 
     private RemoveAction removeAction;
 
+    private ErrorAction errorAction;
+
     public ActionManager(){
         initialiseActions();
     }
@@ -24,6 +27,7 @@ public class ActionManager {
         newProjectAction = new NewProjectAction();
         helpAction = new HelpAction();
         removeAction = new RemoveAction();
+        errorAction = new ErrorAction();
     }
 
 

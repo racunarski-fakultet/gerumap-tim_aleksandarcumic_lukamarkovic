@@ -26,5 +26,10 @@ public class ConsoleLogger implements ErrorLogger{
         System.out.println("[" + et.toString() + "] [" + d + "] [" + hour + ":" + min + "]" + m.getContent());
     }
 
+    @Override
+    public void update(Object obj) {
+
+    }
+
     //treba ispisati gresku na konzolu samo
 }

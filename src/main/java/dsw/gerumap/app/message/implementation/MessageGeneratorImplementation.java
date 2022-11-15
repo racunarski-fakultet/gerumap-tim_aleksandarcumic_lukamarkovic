@@ -13,8 +13,8 @@ import java.util.concurrent.Flow;
 @Setter
 
 public class MessageGeneratorImplementation implements MessageGenerator {
+    List<Object> subscribers = new ArrayList<>();
 
-    private List<MessageGenerator> subscribers = new ArrayList<>();
     private Message m;
 
     @Override
@@ -22,7 +22,7 @@ public class MessageGeneratorImplementation implements MessageGenerator {
         if(eventType.equals(EventType.CANNOTADDCHILD)){
             notify();
         }else if (eventType.equals(EventType.DELETEPROJEXPL)){
-            m = new Message("Uspelo je", eventType);
+            notify();
         }else if (eventType.equals(EventType.NAMECANNOTBEEMPTY)){
             notify();
         }else if (eventType.equals(EventType.NODECANNOTBEDELETED)){
@@ -32,19 +32,14 @@ public class MessageGeneratorImplementation implements MessageGenerator {
         }
     }
 
-    public void addSubscriber(MessageGenerator mg) {
-        subscribers.add(mg);
+    @Override
+    public void addSubscriber(Object obj) {
+        subscribers.add(obj);
     }
 
-    public void removeSubscriber(MessageGenerator mg) {
-        subscribers.remove(mg);
-    }
-
-    public void setMessage(Message m){
-        this.m = m;
-        for(MessageGenerator mg : this.subscribers){
-            mg.generate(this.m.et);
-        }
+    @Override
+    public void removeSubscriber(Object obj) {
+        subscribers.remove(obj);
     }
 
 }

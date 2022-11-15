@@ -9,6 +9,11 @@ public class FileLogger implements ErrorLogger {
 
     }
 
+    @Override
+    public void update(Object obj) {
+
+    }
+
     //Treba imati File f u kom ce biti ispisana
     //ista poruka kao u ConsoleLoggeru
 }

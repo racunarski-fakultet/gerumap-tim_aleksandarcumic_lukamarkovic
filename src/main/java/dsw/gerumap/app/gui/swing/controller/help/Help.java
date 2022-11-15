@@ -2,7 +2,6 @@ package main.java.dsw.gerumap.app.gui.swing.controller.help;
 
 import javax.swing.*;
 import java.awt.*;
-import java.lang.reflect.Parameter;
 
 public class Help extends JDialog {
 
