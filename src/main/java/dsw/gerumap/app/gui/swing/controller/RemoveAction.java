@@ -1,18 +1,9 @@
 package main.java.dsw.gerumap.app.gui.swing.controller;
 
-import main.java.dsw.gerumap.app.gui.swing.controller.error.Error;
-import main.java.dsw.gerumap.app.gui.swing.controller.error.ErrorAction;
 import main.java.dsw.gerumap.app.gui.swing.tree.model.MapTreeItem;
 import main.java.dsw.gerumap.app.gui.swing.view.MainFrame;
-import main.java.dsw.gerumap.app.message.EventType;
-import main.java.dsw.gerumap.app.message.MessageGenerator;
-import main.java.dsw.gerumap.app.message.implementation.Message;
-import main.java.dsw.gerumap.app.message.implementation.MessageGeneratorImplementation;
-import main.java.dsw.gerumap.app.repository.implementation.ProjectExplorer;
 
 import javax.swing.*;
-import javax.swing.tree.TreeNode;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 

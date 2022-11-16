@@ -35,7 +35,6 @@ public class AppCore extends ApplicationFramework {
         Gui gui = new SwingGui();
         MapRepository mapRepository = new MapRepositoryImpl();
 
-
         MessageGenerator mg = new MessageGeneratorImplementation();
         ErrorLogger erC = new ConsoleLogger();
         ErrorLogger erL = new FileLogger();
@@ -44,7 +43,7 @@ public class AppCore extends ApplicationFramework {
         mg.addSubscriber(erC);
         mg.addSubscriber(erL);
 
-        appCore.initialise(gui,mapRepository, mg);
+        appCore.initialise(gui, mapRepository, mg);
         appCore.run();
     }
 

@@ -1,5 +1,6 @@
 package main.java.dsw.gerumap.app.gui.swing.tree.controller;
 
+import main.java.dsw.gerumap.app.gui.swing.controller.error.ErrorFind;
 import main.java.dsw.gerumap.app.gui.swing.tree.model.MapTreeItem;
 
 import javax.swing.*;
@@ -13,9 +14,13 @@ import java.util.EventObject;
 
 public class MapTreeCellEditor extends DefaultTreeCellEditor implements ActionListener {
 
-
+    ErrorFind er;
     private Object clickedOn =null;
     private JTextField edit=null;
+
+    public JTextField getEdit() {
+        return edit;
+    }
 
     public MapTreeCellEditor(JTree arg0, DefaultTreeCellRenderer arg1) {
         super(arg0, arg1);
@@ -26,6 +31,9 @@ public class MapTreeCellEditor extends DefaultTreeCellEditor implements ActionLi
         clickedOn =arg1;
         edit=new JTextField(arg1.toString());
         edit.addActionListener(this);
+        if(edit.toString().equals("")){
+            er = new ErrorFind();
+        }
         return edit;
     }
 

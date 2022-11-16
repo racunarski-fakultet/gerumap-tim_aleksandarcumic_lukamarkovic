@@ -1,5 +1,7 @@
 package main.java.dsw.gerumap.app.gui.swing.tree;
 
+import main.java.dsw.gerumap.app.gui.swing.controller.error.ErrorFind;
+import main.java.dsw.gerumap.app.gui.swing.controller.error.ErrorShow;
 import main.java.dsw.gerumap.app.gui.swing.tree.model.MapTreeItem;
 import main.java.dsw.gerumap.app.gui.swing.tree.view.MapTreeView;
 import main.java.dsw.gerumap.app.repository.composite.MapNode;
@@ -15,6 +17,7 @@ import java.util.Random;
 
 public class MapTreeImplementation implements MapTree {
 
+    ErrorFind ef;
     private MapTreeView treeView;
     private DefaultTreeModel treeModel;
 
@@ -31,9 +34,10 @@ public class MapTreeImplementation implements MapTree {
     @Override
     public void addChild(MapTreeItem parent) {
 
-        if (!(parent.getMapNode() instanceof MapNodeComposite))
+        if (!(parent.getMapNode() instanceof MapNodeComposite)) {
+            ef = new ErrorFind();
             return;
-
+        }
         MapNode child = createChild(parent.getMapNode());
         parent.add(new MapTreeItem(child));
         ((MapNodeComposite) parent.getMapNode()).addChild(child);
@@ -43,8 +47,10 @@ public class MapTreeImplementation implements MapTree {
 
     @Override
     public void removeChild(MapTreeItem child) {
-        if(child.getMapNode() instanceof ProjectExplorer)
+        if(child.getMapNode() instanceof ProjectExplorer) {
+            ef = new ErrorFind();
             return;
+        }
         child.removeAllChildren();
         child.removeFromParent();
         SwingUtilities.updateComponentTreeUI(treeView);

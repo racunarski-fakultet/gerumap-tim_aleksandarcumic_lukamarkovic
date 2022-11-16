@@ -16,11 +16,4 @@ public class Message {
         this.content = content;
     }
 
-    public String getContent() {
-        return content;
-    }
-
-    public EventType getEt() {
-        return et;
-    }
 }
