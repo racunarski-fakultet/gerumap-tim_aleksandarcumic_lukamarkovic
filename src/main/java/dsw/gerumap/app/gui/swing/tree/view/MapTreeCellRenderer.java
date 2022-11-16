@@ -1,7 +1,7 @@
 package main.java.dsw.gerumap.app.gui.swing.tree.view;
 
 import main.java.dsw.gerumap.app.gui.swing.tree.model.MapTreeItem;
-import main.java.dsw.gerumap.app.repository.implementation.MapaUma;
+import main.java.dsw.gerumap.app.repository.implementation.MindMap;
 import main.java.dsw.gerumap.app.repository.implementation.Project;
 import main.java.dsw.gerumap.app.repository.implementation.ProjectExplorer;
 import lombok.NoArgsConstructor;
@@ -25,7 +25,7 @@ public class MapTreeCellRenderer extends DefaultTreeCellRenderer {
         else if (((MapTreeItem)value).getMapNode() instanceof Project) {
             imageURL = getClass().getResource("/images/tproject.gif");
         }
-        else if (((MapTreeItem)value).getMapNode() instanceof MapaUma) {
+        else if (((MapTreeItem)value).getMapNode() instanceof MindMap) {
             imageURL = getClass().getResource("/images/tmapauma.gif");
         }
 

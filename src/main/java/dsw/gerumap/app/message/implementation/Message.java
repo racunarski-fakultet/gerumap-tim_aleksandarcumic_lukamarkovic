@@ -2,6 +2,7 @@ package main.java.dsw.gerumap.app.message.implementation;
 
 import lombok.Getter;
 import lombok.Setter;
+import main.java.dsw.gerumap.app.message.ErrorType;
 import main.java.dsw.gerumap.app.message.EventType;
 
 @Getter
@@ -9,11 +10,15 @@ import main.java.dsw.gerumap.app.message.EventType;
 public class Message {
 
     String content;
-    EventType et;
+    ErrorType et;
 
-    public Message(String content, EventType et){
+    public Message(String content, ErrorType et){
         this.et = et;
         this.content = content;
     }
 
+    @Override
+    public String toString() {
+        return content;
+    }
 }

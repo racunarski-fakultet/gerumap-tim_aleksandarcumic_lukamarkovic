@@ -5,8 +5,7 @@ package main.java.dsw.gerumap.app.core;
 
 import lombok.Getter;
 import lombok.Setter;
-import main.java.dsw.gerumap.app.gui.swing.controller.error.ErrorFind;
-import main.java.dsw.gerumap.app.message.MessageGenerator;
+import main.java.dsw.gerumap.app.error.ErrorLogger;
 
 @Getter
 @Setter
@@ -18,17 +17,19 @@ public class ApplicationFramework {
 
     protected MapRepository mapRepository;
 
-    protected ErrorFind errorFind;
+    protected ErrorLogger cl;
+    protected ErrorLogger fl;
 
     public void run (){
         this.gui.start();
     }
 
-    public void initialise (Gui gui, MapRepository mapRepository, MessageGenerator mg) {
+    public void initialise (Gui gui, MapRepository mapRepository, MessageGenerator mg, ErrorLogger cl, ErrorLogger fl) {
         this.gui = gui;
         this.mapRepository = mapRepository;
         this.mg = mg;
-        this.errorFind = errorFind;
+        this.cl = cl;
+        this.fl = fl;
     }
 
 

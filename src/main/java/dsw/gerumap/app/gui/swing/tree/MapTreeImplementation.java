@@ -1,13 +1,17 @@
 package main.java.dsw.gerumap.app.gui.swing.tree;
 
-import main.java.dsw.gerumap.app.gui.swing.controller.error.ErrorFind;
-import main.java.dsw.gerumap.app.gui.swing.controller.error.ErrorShow;
+import main.java.dsw.gerumap.app.core.ApplicationFramework;
 import main.java.dsw.gerumap.app.gui.swing.tree.model.MapTreeItem;
 import main.java.dsw.gerumap.app.gui.swing.tree.view.MapTreeView;
+import main.java.dsw.gerumap.app.message.EventType;
+import main.java.dsw.gerumap.app.core.MessageGenerator;
+import main.java.dsw.gerumap.app.message.implementation.MessageGeneratorImplementation;
 import main.java.dsw.gerumap.app.repository.composite.MapNode;
 import main.java.dsw.gerumap.app.repository.composite.MapNodeComposite;
+import main.java.dsw.gerumap.app.repository.factory.NodeFactory;
+import main.java.dsw.gerumap.app.repository.factory.factoryImplementation.utils.FactoryUtils;
 import main.java.dsw.gerumap.app.repository.implementation.Element;
-import main.java.dsw.gerumap.app.repository.implementation.MapaUma;
+import main.java.dsw.gerumap.app.repository.implementation.MindMap;
 import main.java.dsw.gerumap.app.repository.implementation.Project;
 import main.java.dsw.gerumap.app.repository.implementation.ProjectExplorer;
 
@@ -17,7 +21,7 @@ import java.util.Random;
 
 public class MapTreeImplementation implements MapTree {
 
-    ErrorFind ef;
+    MessageGenerator mg;
     private MapTreeView treeView;
     private DefaultTreeModel treeModel;
 
@@ -35,7 +39,7 @@ public class MapTreeImplementation implements MapTree {
     public void addChild(MapTreeItem parent) {
 
         if (!(parent.getMapNode() instanceof MapNodeComposite)) {
-            ef = new ErrorFind();
+            ApplicationFramework.getInstance().getMg().generate(EventType.CANNOTADDCHILD);
             return;
         }
         MapNode child = createChild(parent.getMapNode());
@@ -48,7 +52,8 @@ public class MapTreeImplementation implements MapTree {
     @Override
     public void removeChild(MapTreeItem child) {
         if(child.getMapNode() instanceof ProjectExplorer) {
-            ef = new ErrorFind();
+            mg = new MessageGeneratorImplementation();
+            mg.generate(EventType.DELETEPROJEXPL);
             return;
         }
         child.removeAllChildren();
@@ -63,13 +68,15 @@ public class MapTreeImplementation implements MapTree {
     }
 
     private MapNode createChild(MapNode parent) {
-        if (parent instanceof ProjectExplorer)
-            return  new Project("Project" +new Random().nextInt(100), parent);
-        else if(parent instanceof Project)
-            return new MapaUma("Mapa uma"+new Random().nextInt(100), parent);
-        else if(parent instanceof MapaUma)
-            return new Element("Element"+new Random().nextInt(100), parent);
-        return null;
+        NodeFactory nf = FactoryUtils.getNodeFactory(parent);
+        return nf.getNode(parent);
+//        if (parent instanceof ProjectExplorer)
+//            return  new Project("Project" +new Random().nextInt(100), parent);
+//        else if(parent instanceof Project)
+//            return new MindMap("Mapa uma"+new Random().nextInt(100), parent);
+//        else if(parent instanceof MindMap)
+//            return new Element("Element"+new Random().nextInt(100), parent);
+//        return null;
     }
 
 }

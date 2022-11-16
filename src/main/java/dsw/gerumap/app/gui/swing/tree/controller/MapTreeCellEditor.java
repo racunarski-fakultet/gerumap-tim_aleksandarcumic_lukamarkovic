@@ -1,7 +1,12 @@
 package main.java.dsw.gerumap.app.gui.swing.tree.controller;
 
-import main.java.dsw.gerumap.app.gui.swing.controller.error.ErrorFind;
+import lombok.Getter;
+import lombok.Setter;
+import main.java.dsw.gerumap.app.core.ApplicationFramework;
 import main.java.dsw.gerumap.app.gui.swing.tree.model.MapTreeItem;
+import main.java.dsw.gerumap.app.message.EventType;
+import main.java.dsw.gerumap.app.core.MessageGenerator;
+import main.java.dsw.gerumap.app.message.implementation.MessageGeneratorImplementation;
 
 import javax.swing.*;
 import javax.swing.tree.DefaultTreeCellEditor;
@@ -12,9 +17,11 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.util.EventObject;
 
+@Getter
+@Setter
 public class MapTreeCellEditor extends DefaultTreeCellEditor implements ActionListener {
 
-    ErrorFind er;
+    MessageGenerator mg;
     private Object clickedOn =null;
     private JTextField edit=null;
 
@@ -27,13 +34,10 @@ public class MapTreeCellEditor extends DefaultTreeCellEditor implements ActionLi
     }
 
     public Component getTreeCellEditorComponent(JTree arg0, Object arg1, boolean arg2, boolean arg3, boolean arg4, int arg5) {
-        //super.getTreeCellEditorComponent(arg0,arg1,arg2,arg3,arg4,arg5);
         clickedOn =arg1;
         edit=new JTextField(arg1.toString());
         edit.addActionListener(this);
-        if(edit.toString().equals("")){
-            er = new ErrorFind();
-        }
+
         return edit;
     }
 
@@ -54,6 +58,9 @@ public class MapTreeCellEditor extends DefaultTreeCellEditor implements ActionLi
         if (!(clickedOn instanceof MapTreeItem))
             return;
 
+        if(edit.getText().equals("")){
+            ApplicationFramework.getInstance().getMg().generate(EventType.NAMECANNOTBEEMPTY);
+        }
         MapTreeItem clicked = (MapTreeItem) clickedOn;
         clicked.setName(e.getActionCommand());
 

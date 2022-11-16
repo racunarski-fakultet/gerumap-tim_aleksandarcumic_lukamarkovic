@@ -1,12 +1,9 @@
 package main.java.dsw.gerumap.app.Observer;
 
-import main.java.dsw.gerumap.app.message.MessageGenerator;
-
-import java.util.ArrayList;
-import java.util.List;
-
 public interface Publisher {
-    void addSubscriber(Object obj);
+    void addSubscriber(Subscriber subscriber);
 
-    void removeSubscriber(Object obj);
+    void removeSubscriber(Subscriber subscriber);
+
+    void notifySubscriber(Object obj);
 }

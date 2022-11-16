@@ -11,20 +11,20 @@ public class Project extends MapNodeComposite {
 
     @Override
     public void addChild(MapNode child) {
-        if (child != null &&  child instanceof MapaUma){
-            MapaUma mapaUma = (MapaUma) child;
-            if (!this.getChildren().contains(mapaUma)){
-                this.getChildren().add(mapaUma);
+        if (child != null &&  child instanceof MindMap){
+            MindMap mindMap = (MindMap) child;
+            if (!this.getChildren().contains(mindMap)){
+                this.getChildren().add(mindMap);
             }
         }
     }
 
     @Override
     public void removeChild(MapNode child) {
-        if (child != null &&  child instanceof MapaUma && this.getChildren()!=null){
-            MapaUma mapaUma = (MapaUma) child;
-            if (!this.getChildren().contains(mapaUma)){
-                this.getChildren().remove(mapaUma);
+        if (child != null &&  child instanceof MindMap && this.getChildren()!=null){
+            MindMap mindMap = (MindMap) child;
+            if (!this.getChildren().contains(mindMap)){
+                this.getChildren().remove(mindMap);
             }
         }
     }

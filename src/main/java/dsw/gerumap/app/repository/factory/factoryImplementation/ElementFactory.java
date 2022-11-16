@@ -1,16 +1,16 @@
 package main.java.dsw.gerumap.app.repository.factory.factoryImplementation;
 
+import lombok.NoArgsConstructor;
 import main.java.dsw.gerumap.app.repository.composite.MapNode;
 import main.java.dsw.gerumap.app.repository.factory.NodeFactory;
+import main.java.dsw.gerumap.app.repository.implementation.Element;
+import main.java.dsw.gerumap.app.repository.implementation.MindMap;
 
-public class ElementFactory extends NodeFactory {
-
-    public ElementFactory(String name, MapNode parent) {
-        super(name, parent);
-    }
-
+@NoArgsConstructor
+public class ElementFactory  extends NodeFactory {
     @Override
-    public MapNode createNode(String name) {
-        return null;
+    public MapNode createNode(MapNode node) {
+        return new Element("Element" + ((MindMap) node).getChildren().size(), node);
     }
 }
+

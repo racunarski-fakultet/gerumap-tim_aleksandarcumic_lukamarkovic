@@ -1,10 +1,17 @@
 package main.java.dsw.gerumap.app.repository.composite;
 
-import lombok.*;
+import main.java.dsw.gerumap.app.core.MapRepository;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+import java.util.List;
 
 @Getter
 @Setter
-public abstract class MapNode {
+@NoArgsConstructor
+public abstract  class MapNode {
 
     private String name;
     @ToString.Exclude
@@ -23,4 +30,5 @@ public abstract class MapNode {
         }
         return false;
     }
+
 }

@@ -4,9 +4,10 @@ package main.java.dsw.gerumap.app.repository.implementation;
 import main.java.dsw.gerumap.app.repository.composite.MapNode;
 import main.java.dsw.gerumap.app.repository.composite.MapNodeComposite;
 
-public class MapaUma extends MapNodeComposite {
+public class MindMap extends MapNodeComposite {
 
-    public MapaUma(String name, MapNode parent) {
+    private boolean template;
+    public MindMap(String name, MapNode parent) {
         super(name, parent);
     }
 
@@ -28,5 +29,9 @@ public class MapaUma extends MapNodeComposite {
                 this.getChildren().remove(element);
             }
         }
+    }
+    public MindMap(String name, MapNode parent, boolean template) {
+        super(name, parent);
+        this.template = template;
     }
 }

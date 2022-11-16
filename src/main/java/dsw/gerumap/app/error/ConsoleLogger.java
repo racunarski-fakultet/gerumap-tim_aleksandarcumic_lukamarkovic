@@ -13,7 +13,7 @@ public class ConsoleLogger implements ErrorLogger{
 
     @Override
     public void log(Message m) {
-        EventType et = m.getEt();
+        ErrorType et = m.getEt();
         String content = m.getContent();
 
         DateFormat dateFormat = new SimpleDateFormat("dd");

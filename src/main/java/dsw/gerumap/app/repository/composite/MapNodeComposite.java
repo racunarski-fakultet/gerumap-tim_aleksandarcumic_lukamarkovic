@@ -12,8 +12,6 @@ public abstract class MapNodeComposite extends MapNode{
 
     List<MapNode> children;
 
-
-
     public MapNodeComposite(String name, MapNode parent) {
         super(name, parent);
         this.children = new ArrayList<>();
@@ -25,7 +23,6 @@ public abstract class MapNodeComposite extends MapNode{
     }
 
     public abstract void addChild(MapNode child);
-
     public abstract void removeChild(MapNode child);
 
     public MapNode getChildByName(String name) {
@@ -37,7 +34,4 @@ public abstract class MapNodeComposite extends MapNode{
         return null;
     }
 
-    public List<MapNode> getChildren() {
-        return children;
-    }
 }

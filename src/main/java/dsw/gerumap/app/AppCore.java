@@ -7,9 +7,9 @@ import main.java.dsw.gerumap.app.error.ConsoleLogger;
 import main.java.dsw.gerumap.app.error.ErrorLogger;
 import main.java.dsw.gerumap.app.error.FileLogger;
 import main.java.dsw.gerumap.app.gui.swing.SwingGui;
-import main.java.dsw.gerumap.app.message.MessageGenerator;
+import main.java.dsw.gerumap.app.core.MessageGenerator;
 import main.java.dsw.gerumap.app.message.implementation.MessageGeneratorImplementation;
-import main.java.dsw.gerumap.app.repository.MapRepositoryImpl;
+import main.java.dsw.gerumap.app.repository.implementation.MapRepositoryImpl;
 
 public class AppCore extends ApplicationFramework {
 
@@ -36,6 +36,7 @@ public class AppCore extends ApplicationFramework {
         MapRepository mapRepository = new MapRepositoryImpl();
 
         MessageGenerator mg = new MessageGeneratorImplementation();
+
         ErrorLogger erC = new ConsoleLogger();
         ErrorLogger erL = new FileLogger();
 
@@ -43,7 +44,7 @@ public class AppCore extends ApplicationFramework {
         mg.addSubscriber(erC);
         mg.addSubscriber(erL);
 
-        appCore.initialise(gui, mapRepository, mg);
+        appCore.initialise(gui, mapRepository, mg, erC, erL);
         appCore.run();
     }
 

@@ -1,6 +1,5 @@
 package main.java.dsw.gerumap.app.gui.swing.tree.model;
 
-import main.java.dsw.gerumap.app.gui.swing.controller.error.ErrorFind;
 import main.java.dsw.gerumap.app.repository.composite.MapNode;
 import lombok.Getter;
 import lombok.Setter;
@@ -11,7 +10,6 @@ import javax.swing.tree.DefaultMutableTreeNode;
 @Setter
 public class MapTreeItem extends DefaultMutableTreeNode {
 
-    ErrorFind er;
     private MapNode mapNode;
 
     public MapTreeItem(MapNode nodeModel) {
