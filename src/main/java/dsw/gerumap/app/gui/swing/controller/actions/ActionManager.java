@@ -1,4 +1,4 @@
-package main.java.dsw.gerumap.app.gui.swing.controller;
+package main.java.dsw.gerumap.app.gui.swing.controller.actions;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -15,6 +15,8 @@ public class ActionManager {
 
     private RemoveAction removeAction;
 
+    private RenameAction renameAction;
+
     public ActionManager(){
         initialiseActions();
     }
@@ -24,6 +26,7 @@ public class ActionManager {
         newProjectAction = new NewProjectAction();
         helpAction = new HelpAction();
         removeAction = new RemoveAction();
+        renameAction = new RenameAction();
     }
 
 

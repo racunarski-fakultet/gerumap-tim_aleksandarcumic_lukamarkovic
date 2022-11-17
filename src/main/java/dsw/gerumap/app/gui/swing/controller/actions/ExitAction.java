@@ -1,4 +1,4 @@
-package main.java.dsw.gerumap.app.gui.swing.controller;
+package main.java.dsw.gerumap.app.gui.swing.controller.actions;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -8,7 +8,7 @@ public class ExitAction extends AbstractGerumapAction {
 
     public ExitAction(){
         putValue(ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_F4, ActionEvent.ALT_MASK));
-        putValue(SMALL_ICON, new ImageIcon("src\\main\\resources\\log-out.png"));
+        putValue(SMALL_ICON, new ImageIcon("src/main/resources/log-out.png"));
         putValue(NAME, "Exit");
         putValue(SHORT_DESCRIPTION, "Exit");
     }

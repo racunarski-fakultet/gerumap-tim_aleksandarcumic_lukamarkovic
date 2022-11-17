@@ -1,4 +1,4 @@
-package main.java.dsw.gerumap.app.gui.swing.controller;
+package main.java.dsw.gerumap.app.gui.swing.controller.actions;
 
 import main.java.dsw.gerumap.app.gui.swing.tree.model.MapTreeItem;
 import main.java.dsw.gerumap.app.gui.swing.view.MainFrame;
@@ -6,7 +6,6 @@ import main.java.dsw.gerumap.app.gui.swing.view.MainFrame;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
-import java.util.Random;
 
 public class NewProjectAction extends AbstractGerumapAction {
 

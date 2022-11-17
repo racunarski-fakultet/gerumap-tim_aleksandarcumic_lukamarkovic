@@ -1,11 +1,10 @@
-package main.java.dsw.gerumap.app.gui.swing.controller;
+package main.java.dsw.gerumap.app.gui.swing.controller.actions;
 
 import main.java.dsw.gerumap.app.core.ApplicationFramework;
 import main.java.dsw.gerumap.app.gui.swing.tree.model.MapTreeItem;
 import main.java.dsw.gerumap.app.gui.swing.view.MainFrame;
 import main.java.dsw.gerumap.app.message.EventType;
 import main.java.dsw.gerumap.app.core.MessageGenerator;
-import main.java.dsw.gerumap.app.message.implementation.MessageGeneratorImplementation;
 import main.java.dsw.gerumap.app.repository.implementation.ProjectExplorer;
 
 import javax.swing.*;
@@ -23,8 +22,7 @@ public class RemoveAction extends AbstractGerumapAction {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        MapTreeItem selected = (MapTreeItem) MainFrame.getInstance().getMapTree().getSelectedNode();
-        MessageGenerator mg;
+        MapTreeItem selected = MainFrame.getInstance().getMapTree().getSelectedNode();
         if(selected == null) {
             ApplicationFramework.getInstance().getMg().generate(EventType.NODENOTSELECTED);
             return;
@@ -33,6 +31,9 @@ public class RemoveAction extends AbstractGerumapAction {
         if(selected.getMapNode() instanceof ProjectExplorer){
             ApplicationFramework.getInstance().getMg().generate(EventType.DELETEPROJEXPL);
         }
+
+        MainFrame.getInstance().getMapTree().removeChild(selected);
+
     }
 
 }

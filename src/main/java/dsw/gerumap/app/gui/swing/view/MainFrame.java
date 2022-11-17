@@ -3,7 +3,7 @@ package main.java.dsw.gerumap.app.gui.swing.view;
 import lombok.Getter;
 import lombok.Setter;
 import main.java.dsw.gerumap.app.core.ApplicationFramework;
-import main.java.dsw.gerumap.app.gui.swing.controller.ActionManager;
+import main.java.dsw.gerumap.app.gui.swing.controller.actions.ActionManager;
 import main.java.dsw.gerumap.app.gui.swing.tree.MapTree;
 import main.java.dsw.gerumap.app.gui.swing.tree.MapTreeImplementation;
 

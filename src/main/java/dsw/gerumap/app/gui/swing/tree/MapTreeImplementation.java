@@ -70,13 +70,6 @@ public class MapTreeImplementation implements MapTree {
     private MapNode createChild(MapNode parent) {
         NodeFactory nf = FactoryUtils.getNodeFactory(parent);
         return nf.getNode(parent);
-//        if (parent instanceof ProjectExplorer)
-//            return  new Project("Project" +new Random().nextInt(100), parent);
-//        else if(parent instanceof Project)
-//            return new MindMap("Mapa uma"+new Random().nextInt(100), parent);
-//        else if(parent instanceof MindMap)
-//            return new Element("Element"+new Random().nextInt(100), parent);
-//        return null;
     }
 
 }

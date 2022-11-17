@@ -14,21 +14,10 @@ public class ConsoleLogger implements ErrorLogger{
     @Override
     public void log(Message m) {
         ErrorType et = m.getEt();
-        String content = m.getContent();
 
-        DateFormat dateFormat = new SimpleDateFormat("dd");
         Date date = new Date();
-        String d = dateFormat.format(date);
 
-        int hour = Calendar.HOUR_OF_DAY;
-        int min = Calendar.MINUTE;
-
-        System.out.println("[" + et.toString() + "] [" + d + "] [" + hour + ":" + min + "]" + m.getContent());
-    }
-
-    @Override
-    public void update(Object obj) {
-
+        System.out.println("[" + et.toString() + "] [" + date + "]" + m.getContent());
     }
 
     //treba ispisati gresku na konzolu samo
