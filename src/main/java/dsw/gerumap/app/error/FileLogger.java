@@ -8,7 +8,6 @@ import java.nio.Buffer;
 public class FileLogger implements ErrorLogger {
 
     String text;
-//    File file;
 
     @Override
     public void log(Message m) throws IOException {
@@ -17,7 +16,6 @@ public class FileLogger implements ErrorLogger {
     }
 
     public void writeInFile() throws IOException{
-//        file =  new File("/resources/log.txt");
         System.out.println("Usao je u writeInFile.");
         try(Writer writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("src/main/resources/log.txt"), "UTF-8"))){
             writer.write(text);
@@ -26,7 +24,4 @@ public class FileLogger implements ErrorLogger {
             e.printStackTrace();
         }
     }
-
-    //Treba imati File f u kom ce biti ispisana
-    //ista poruka kao u ConsoleLoggeru
 }

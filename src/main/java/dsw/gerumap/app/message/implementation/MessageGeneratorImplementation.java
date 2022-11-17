@@ -35,13 +35,24 @@ public class MessageGeneratorImplementation implements MessageGenerator {
             m = new Message("Ne mozete da obrisete Project Explorer.", ErrorType.ERROR);
             return m;
         }else if (eventType.equals(EventType.NAMECANNOTBEEMPTY)){
-            System.out.println("Usao je u if koji treba.");
             m = new Message("Ne mozete da ostavite ime prazno.", ErrorType.ERROR);
             return m;
         }else if (eventType.equals(EventType.NODECANNOTBEDELETED)){
-
+            m = new Message("Cvor ne moze biti obrisan.", ErrorType.ERROR);
+            return m;
+        }else if (eventType.equals(EventType.NODEALREADYEXISTS)){
+            m = new Message("Cvor vec postoji.", ErrorType.ERROR);
+            return m;
+        }else if (eventType.equals(EventType.AUTHORPROJECTNOTSELECTED)){
+            m = new Message("Autor projekta nije selektovan.", ErrorType.ERROR);
+            return m;
+        }else if (eventType.equals(EventType.CANNOTDELETEFILE)){
+            m = new Message("Fajl ne moze biti obrisan.", ErrorType.ERROR);
+            return m;
+        }else if (eventType.equals(EventType.NODENOTSELECTED)){
+            m = new Message("Cvor vec postoji", ErrorType.ERROR);
         }else{
-            System.out.println("Generate je uspeo.");
+            m = new Message("Ova greska nije obradjena.", ErrorType.ERROR);
         }
         return m;
     }
