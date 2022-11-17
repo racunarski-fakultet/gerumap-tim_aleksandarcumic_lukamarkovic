@@ -17,6 +17,7 @@ import main.java.dsw.gerumap.app.repository.implementation.ProjectExplorer;
 
 import javax.swing.*;
 import javax.swing.tree.DefaultTreeModel;
+import java.io.IOException;
 import java.util.Random;
 
 public class MapTreeImplementation implements MapTree {
@@ -36,7 +37,7 @@ public class MapTreeImplementation implements MapTree {
 
 
     @Override
-    public void addChild(MapTreeItem parent) {
+    public void addChild(MapTreeItem parent) throws IOException {
 
         if (!(parent.getMapNode() instanceof MapNodeComposite)) {
             ApplicationFramework.getInstance().getMg().generate(EventType.CANNOTADDCHILD);
@@ -50,10 +51,9 @@ public class MapTreeImplementation implements MapTree {
     }
 
     @Override
-    public void removeChild(MapTreeItem child) {
+    public void removeChild(MapTreeItem child) throws IOException {
         if(child.getMapNode() instanceof ProjectExplorer) {
-            mg = new MessageGeneratorImplementation();
-            mg.generate(EventType.DELETEPROJEXPL);
+            ApplicationFramework.getInstance().getMg().generate(EventType.DELETEPROJEXPL);
             return;
         }
         child.removeAllChildren();

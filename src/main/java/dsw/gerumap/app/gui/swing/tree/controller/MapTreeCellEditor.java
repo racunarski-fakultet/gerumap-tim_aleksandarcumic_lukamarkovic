@@ -15,6 +15,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
+import java.io.IOException;
 import java.util.EventObject;
 
 @Getter
@@ -57,7 +58,11 @@ public class MapTreeCellEditor extends DefaultTreeCellEditor implements ActionLi
             return;
 
         if(edit.getText().equals("")){
-            ApplicationFramework.getInstance().getMg().generate(EventType.NAMECANNOTBEEMPTY);
+            try {
+                ApplicationFramework.getInstance().getMg().generate(EventType.NAMECANNOTBEEMPTY);
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
         }
         MapTreeItem clicked = (MapTreeItem) clickedOn;
         clicked.setName(e.getActionCommand());

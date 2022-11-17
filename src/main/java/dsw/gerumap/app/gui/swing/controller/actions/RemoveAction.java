@@ -10,6 +10,7 @@ import main.java.dsw.gerumap.app.repository.implementation.ProjectExplorer;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
+import java.io.IOException;
 
 public class RemoveAction extends AbstractGerumapAction {
 
@@ -24,15 +25,27 @@ public class RemoveAction extends AbstractGerumapAction {
     public void actionPerformed(ActionEvent e) {
         MapTreeItem selected = MainFrame.getInstance().getMapTree().getSelectedNode();
         if(selected == null) {
-            ApplicationFramework.getInstance().getMg().generate(EventType.NODENOTSELECTED);
+            try {
+                ApplicationFramework.getInstance().getMg().generate(EventType.NODENOTSELECTED);
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
             return;
         }
 
         if(selected.getMapNode() instanceof ProjectExplorer){
-            ApplicationFramework.getInstance().getMg().generate(EventType.DELETEPROJEXPL);
+            try {
+                ApplicationFramework.getInstance().getMg().generate(EventType.DELETEPROJEXPL);
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
         }
 
-        MainFrame.getInstance().getMapTree().removeChild(selected);
+        try {
+            MainFrame.getInstance().getMapTree().removeChild(selected);
+        } catch (IOException ex) {
+            throw new RuntimeException(ex);
+        }
 
     }
 

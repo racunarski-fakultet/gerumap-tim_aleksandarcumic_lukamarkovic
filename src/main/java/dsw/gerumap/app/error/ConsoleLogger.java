@@ -17,7 +17,7 @@ public class ConsoleLogger implements ErrorLogger{
 
         Date date = new Date();
 
-        System.out.println("[" + et.toString() + "] [" + date + "]" + m.getContent());
+        System.out.println("[" + et.toString() + "] [" + date + "] " + m.getContent());
     }
 
     //treba ispisati gresku na konzolu samo

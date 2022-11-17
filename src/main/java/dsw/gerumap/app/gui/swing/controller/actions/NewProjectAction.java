@@ -6,6 +6,7 @@ import main.java.dsw.gerumap.app.gui.swing.view.MainFrame;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
+import java.io.IOException;
 
 public class NewProjectAction extends AbstractGerumapAction {
 
@@ -20,6 +21,10 @@ public class NewProjectAction extends AbstractGerumapAction {
     @Override
     public void actionPerformed(ActionEvent e) {
         MapTreeItem selected = MainFrame.getInstance().getMapTree().getSelectedNode();
-        MainFrame.getInstance().getMapTree().addChild(selected);
+        try {
+            MainFrame.getInstance().getMapTree().addChild(selected);
+        } catch (IOException ex) {
+            throw new RuntimeException(ex);
+        }
     }
 }

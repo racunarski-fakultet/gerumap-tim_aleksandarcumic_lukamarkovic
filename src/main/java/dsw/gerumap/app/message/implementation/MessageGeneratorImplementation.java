@@ -7,6 +7,7 @@ import main.java.dsw.gerumap.app.message.ErrorType;
 import main.java.dsw.gerumap.app.message.EventType;
 import main.java.dsw.gerumap.app.core.MessageGenerator;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,9 +23,7 @@ public class MessageGeneratorImplementation implements MessageGenerator {
         this.subscribers = new ArrayList<>();
     }
     @Override
-    public void generate(EventType type) {
-        System.out.println(subscribers.size());
-        System.out.println("generate");
+    public void generate(EventType type) throws IOException {
         notifySubscriber(createMessage(type));
     }
 
@@ -52,9 +51,7 @@ public class MessageGeneratorImplementation implements MessageGenerator {
         if(subscriber == null || subscribers.contains(subscriber)){
             return;
         }
-        System.out.println("addedsub");
         subscribers.add(subscriber);
-        System.out.println(subscribers.size());
     }
 
     @Override
@@ -66,7 +63,7 @@ public class MessageGeneratorImplementation implements MessageGenerator {
     }
 
     @Override
-    public void notifySubscriber(Object obj) {
+    public void notifySubscriber(Object obj) throws IOException {
         if (obj == null || subscribers.isEmpty()) {
             System.out.println(subscribers.size());
             return;
