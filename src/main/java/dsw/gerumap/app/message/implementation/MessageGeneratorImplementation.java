@@ -50,7 +50,7 @@ public class MessageGeneratorImplementation implements MessageGenerator {
             m = new Message("Fajl ne moze biti obrisan.", ErrorType.ERROR);
             return m;
         }else if (eventType.equals(EventType.NODENOTSELECTED)){
-            m = new Message("Cvor vec postoji", ErrorType.ERROR);
+            m = new Message("Nije selektovan niti jedan cvor.", ErrorType.ERROR);
         }else{
             m = new Message("Ova greska nije obradjena.", ErrorType.ERROR);
         }
