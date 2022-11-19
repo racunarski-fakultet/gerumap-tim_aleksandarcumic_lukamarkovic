@@ -1,6 +1,5 @@
 package main.java.dsw.gerumap.app.gui.swing.controller.actions;
 
-import main.java.dsw.gerumap.app.gui.swing.tree.controller.MapTreeCellEditor;
 import main.java.dsw.gerumap.app.gui.swing.tree.model.MapTreeItem;
 import main.java.dsw.gerumap.app.gui.swing.view.MainFrame;
 
@@ -19,7 +18,6 @@ public class RenameAction extends AbstractGerumapAction {
     @Override
     public void actionPerformed(ActionEvent e) {
         MapTreeItem selected = MainFrame.getInstance().getMapTree().getSelectedNode();
-        String text = MainFrame.getInstance().getMapTree().getSelectedNode().getMapNode().getName();
-        selected.setName(text);
+
     }
 }

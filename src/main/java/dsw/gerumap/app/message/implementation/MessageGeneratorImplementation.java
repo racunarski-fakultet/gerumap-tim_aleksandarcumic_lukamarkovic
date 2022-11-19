@@ -51,6 +51,7 @@ public class MessageGeneratorImplementation implements MessageGenerator {
             return m;
         }else if (eventType.equals(EventType.NODENOTSELECTED)){
             m = new Message("Nije selektovan niti jedan cvor.", ErrorType.ERROR);
+            return m;
         }else{
             m = new Message("Ova greska nije obradjena.", ErrorType.ERROR);
         }

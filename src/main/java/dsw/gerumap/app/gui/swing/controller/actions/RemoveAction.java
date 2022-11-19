@@ -39,6 +39,7 @@ public class RemoveAction extends AbstractGerumapAction {
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
             }
+            return;
         }
 
         try {
