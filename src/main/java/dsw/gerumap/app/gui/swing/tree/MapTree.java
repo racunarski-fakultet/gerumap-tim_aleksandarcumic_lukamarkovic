@@ -9,9 +9,9 @@ import java.io.IOException;
 public interface MapTree {
 
     MapTreeView generateTree(ProjectExplorer projectExplorer);
-    void addChild(MapTreeItem parent) throws IOException;
+    void addChild(MapTreeItem parent);
 
-    void removeChild(MapTreeItem parent) throws IOException;
+    void removeChild(MapTreeItem parent);
     MapTreeItem getSelectedNode();
 
 }

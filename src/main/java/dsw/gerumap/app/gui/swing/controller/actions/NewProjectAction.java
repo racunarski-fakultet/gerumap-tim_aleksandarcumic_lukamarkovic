@@ -25,17 +25,9 @@ public class NewProjectAction extends AbstractGerumapAction {
         MapTreeItem selected = MainFrame.getInstance().getMapTree().getSelectedNode();
 
         if(selected == null) {
-            try {
-                ApplicationFramework.getInstance().getMg().generate(EventType.NODENOTSELECTED);
-            } catch (IOException ex) {
-                throw new RuntimeException(ex);
-            }
+            ApplicationFramework.getInstance().getMg().generate(EventType.NODENOTSELECTED);
             return;
         }
-        try {
-            MainFrame.getInstance().getMapTree().addChild(selected);
-        } catch (IOException ex) {
-            throw new RuntimeException(ex);
-        }
+        MainFrame.getInstance().getMapTree().addChild(selected);
     }
 }

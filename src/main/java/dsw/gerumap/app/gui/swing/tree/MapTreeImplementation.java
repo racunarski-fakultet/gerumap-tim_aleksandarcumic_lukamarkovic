@@ -37,7 +37,7 @@ public class MapTreeImplementation implements MapTree {
 
 
     @Override
-    public void addChild(MapTreeItem parent) throws IOException {
+    public void addChild(MapTreeItem parent){
 
         if (!(parent.getMapNode() instanceof MapNodeComposite)) {
             ApplicationFramework.getInstance().getMg().generate(EventType.CANNOTADDCHILD);
@@ -51,7 +51,7 @@ public class MapTreeImplementation implements MapTree {
     }
 
     @Override
-    public void removeChild(MapTreeItem child) throws IOException {
+    public void removeChild(MapTreeItem child){
         if(child.getMapNode() instanceof ProjectExplorer) {
             ApplicationFramework.getInstance().getMg().generate(EventType.DELETEPROJEXPL);
             return;

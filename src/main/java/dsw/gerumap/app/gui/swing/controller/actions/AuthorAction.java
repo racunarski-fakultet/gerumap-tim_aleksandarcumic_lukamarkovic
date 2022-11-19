@@ -24,11 +24,7 @@ public class AuthorAction extends AbstractGerumapAction{
     public void actionPerformed(ActionEvent e) {
         MapTreeItem selected = MainFrame.getInstance().getMapTree().getSelectedNode();
         if(selected == null) {
-            try {
-                ApplicationFramework.getInstance().getMg().generate(EventType.NODENOTSELECTED);
-            } catch (IOException ex) {
-                throw new RuntimeException(ex);
-            }
+            ApplicationFramework.getInstance().getMg().generate(EventType.NODENOTSELECTED);
             return;
         }
 

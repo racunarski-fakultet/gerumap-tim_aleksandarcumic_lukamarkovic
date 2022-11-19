@@ -58,11 +58,7 @@ public class MapTreeCellEditor extends DefaultTreeCellEditor implements ActionLi
             return;
 
         if(edit.getText().equals("")){
-            try {
-                ApplicationFramework.getInstance().getMg().generate(EventType.NAMECANNOTBEEMPTY);
-            } catch (IOException ex) {
-                throw new RuntimeException(ex);
-            }
+            ApplicationFramework.getInstance().getMg().generate(EventType.NAMECANNOTBEEMPTY);
         }
         MapTreeItem clicked = (MapTreeItem) clickedOn;
         clicked.setName(e.getActionCommand());

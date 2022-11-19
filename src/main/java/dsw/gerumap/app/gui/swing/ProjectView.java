@@ -14,6 +14,7 @@ public class ProjectView extends JPanel implements Subscriber {
 
     private String projectName;
     private String authorName;
+    private JLabel bothNames;
 
     private JLabel projectName1;
 
@@ -27,6 +28,7 @@ public class ProjectView extends JPanel implements Subscriber {
     public ProjectView(){
         this.projectName1 = new JLabel();
         this.authorName1 = new JLabel();
+        this.bothNames = new JLabel();
         this.tabbedPane = new JTabbedPane();
         this.tabs = new ArrayList<>();
         add(projectName1);
@@ -55,7 +57,6 @@ public class ProjectView extends JPanel implements Subscriber {
             ((Project)project).removeSubscriber(this);
         }
 
-
         this.project = selectedProject;
 
         ((Project)project).addSubscriber(this);
@@ -66,11 +67,16 @@ public class ProjectView extends JPanel implements Subscriber {
             tabs.add(tab);
         }
 
+        if (project == null) {
+            tabbedPane.setVisible(false);
+            return;
+        }
+
         for(MapView tab : tabs)
             tabbedPane.addTab(tab.getMindMap().getName(), tab);
 
         refreshLabele();
-
+        tabbedPane.setVisible(true);
     }
 
     @Override
@@ -79,8 +85,6 @@ public class ProjectView extends JPanel implements Subscriber {
             return;
         }
         refreshLabele();
-
-
     }
 
     private void refreshLabele(){
@@ -94,4 +98,9 @@ public class ProjectView extends JPanel implements Subscriber {
 
     }
 
+    public void clearTab(){
+        tabbedPane.removeAll();
+        tabs.clear();
+        bothNames.setText("Autor i ime projekta");
+    }
 }

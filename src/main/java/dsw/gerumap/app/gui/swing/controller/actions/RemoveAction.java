@@ -5,6 +5,8 @@ import main.java.dsw.gerumap.app.gui.swing.tree.model.MapTreeItem;
 import main.java.dsw.gerumap.app.gui.swing.view.MainFrame;
 import main.java.dsw.gerumap.app.message.EventType;
 import main.java.dsw.gerumap.app.core.MessageGenerator;
+import main.java.dsw.gerumap.app.repository.implementation.MindMap;
+import main.java.dsw.gerumap.app.repository.implementation.Project;
 import main.java.dsw.gerumap.app.repository.implementation.ProjectExplorer;
 
 import javax.swing.*;
@@ -25,28 +27,26 @@ public class RemoveAction extends AbstractGerumapAction {
     public void actionPerformed(ActionEvent e) {
         MapTreeItem selected = MainFrame.getInstance().getMapTree().getSelectedNode();
         if(selected == null) {
-            try {
-                ApplicationFramework.getInstance().getMg().generate(EventType.NODENOTSELECTED);
-            } catch (IOException ex) {
-                throw new RuntimeException(ex);
-            }
+            ApplicationFramework.getInstance().getMg().generate(EventType.NODENOTSELECTED);
             return;
         }
 
         if(selected.getMapNode() instanceof ProjectExplorer){
-            try {
-                ApplicationFramework.getInstance().getMg().generate(EventType.DELETEPROJEXPL);
-            } catch (IOException ex) {
-                throw new RuntimeException(ex);
-            }
+            ApplicationFramework.getInstance().getMg().generate(EventType.DELETEPROJEXPL);
             return;
         }
 
-        try {
+        if(selected.getMapNode() instanceof MindMap){
             MainFrame.getInstance().getMapTree().removeChild(selected);
-        } catch (IOException ex) {
-            throw new RuntimeException(ex);
+            MainFrame.getInstance().getProjectView().refreshWorkspace(selected.getMapNode().getParent());
+            return;
         }
+
+        if(selected.getMapNode() instanceof Project){
+            MainFrame.getInstance().getProjectView().clearTab();
+        }
+
+        MainFrame.getInstance().getMapTree().removeChild(selected);
 
     }
 

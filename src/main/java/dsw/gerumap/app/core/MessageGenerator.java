@@ -11,6 +11,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public interface MessageGenerator extends Publisher {
-    void generate(EventType eventType) throws IOException;
+    void generate(EventType eventType);
 
 }
