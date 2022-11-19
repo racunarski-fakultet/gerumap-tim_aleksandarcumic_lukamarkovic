@@ -17,6 +17,8 @@ public class ActionManager {
 
     private RenameAction renameAction;
 
+    private AuthorAction authorAction;
+
     public ActionManager(){
         initialiseActions();
     }
@@ -27,6 +29,7 @@ public class ActionManager {
         helpAction = new HelpAction();
         removeAction = new RemoveAction();
         renameAction = new RenameAction();
+        authorAction = new AuthorAction();
     }
 
 

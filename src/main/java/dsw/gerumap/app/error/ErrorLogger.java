@@ -6,10 +6,10 @@ import main.java.dsw.gerumap.app.message.implementation.Message;
 import java.io.IOException;
 
 public interface ErrorLogger extends Subscriber {
-    public void log(Message m) throws IOException;
+    public void log(Message m);
 
     @Override
-    default void update(Object obj) throws IOException {
+    default void update(Object obj) {
         Message m = (Message)obj;
         log(m);
     }

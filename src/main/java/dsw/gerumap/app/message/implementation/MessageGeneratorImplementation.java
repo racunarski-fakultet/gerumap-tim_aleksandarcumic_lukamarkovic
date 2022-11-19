@@ -57,25 +57,31 @@ public class MessageGeneratorImplementation implements MessageGenerator {
         return m;
     }
 
-    @Override
     public void addSubscriber(Subscriber subscriber) {
-        if(subscriber == null || subscribers.contains(subscriber)){
+        if(subscriber == null){
             return;
         }
-        subscribers.add(subscriber);
+        if(this.subscribers== null){
+            subscribers = new ArrayList<>();
+        }
+        if(this.subscribers.contains(subscriber)){
+            return;
+        }
+
+        this.subscribers.add(subscriber);
     }
 
     @Override
     public void removeSubscriber(Subscriber subscriber) {
-        if(subscriber == null || subscribers.isEmpty()){
+        if(subscriber == null || this.subscribers.contains(subscriber)){
             return;
         }
         subscribers.remove(subscriber);
     }
 
     @Override
-    public void notifySubscriber(Object obj) throws IOException {
-        if (obj == null || subscribers.isEmpty()) {
+    public void notifySubscriber(Object obj)  {
+        if (obj == null || this.subscribers==null || this.subscribers.isEmpty()) {
             System.out.println(subscribers.size());
             return;
         }

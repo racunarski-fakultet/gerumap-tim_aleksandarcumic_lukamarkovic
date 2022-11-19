@@ -7,5 +7,5 @@ public interface Publisher {
 
     void removeSubscriber(Subscriber subscriber);
 
-    void notifySubscriber(Object obj) throws IOException;
+    void notifySubscriber(Object obj) ;
 }

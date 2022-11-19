@@ -10,12 +10,12 @@ public class FileLogger implements ErrorLogger {
     String text;
 
     @Override
-    public void log(Message m) throws IOException {
+    public void log(Message m) {
         text = m.getContent();
         writeInFile();
     }
 
-    public void writeInFile() throws IOException{
+    public void writeInFile(){
         System.out.println("Usao je u writeInFile.");
         try(Writer writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("src/main/resources/log.txt"), "UTF-8"))){
             writer.write(text);
