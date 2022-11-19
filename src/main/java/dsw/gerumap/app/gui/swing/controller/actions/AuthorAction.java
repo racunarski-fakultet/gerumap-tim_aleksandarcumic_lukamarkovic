@@ -12,7 +12,7 @@ public class AuthorAction extends AbstractGerumapAction{
 
     public AuthorAction() {
         putValue(ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_A, ActionEvent.ALT_MASK));
-        //putValue(SMALL_ICON, new ImageIcon("src/main/resources/log-out.png"));
+        putValue(SMALL_ICON,loadIcon("/images/Author.png"));
         putValue(NAME, "Author");
         putValue(SHORT_DESCRIPTION, "Author");
     }

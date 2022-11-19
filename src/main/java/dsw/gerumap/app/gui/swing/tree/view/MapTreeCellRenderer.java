@@ -20,10 +20,10 @@ public class MapTreeCellRenderer extends DefaultTreeCellRenderer {
         URL imageURL = null;
 
         if (((MapTreeItem)value).getMapNode() instanceof ProjectExplorer) {
-            imageURL = getClass().getResource("/tdiagram.gif");
+            imageURL = getClass().getResource("/Images/tdiagram.gif");
         }
         else if (((MapTreeItem)value).getMapNode() instanceof Project) {
-            imageURL = getClass().getResource("/tproject.gif");
+            imageURL = getClass().getResource("/Images/tproject.gif");
         }
         else if (((MapTreeItem)value).getMapNode() instanceof MindMap) {
             imageURL = getClass().getResource("/tmapauma.gif");
