@@ -20,6 +20,7 @@ public class MainFrame extends JFrame {
     private JMenuBar menu;
     private JToolBar toolBar;
 
+    private JToolBar palette;
     private ProjectView projectView;
 
     private MapTree mapTree;
@@ -52,6 +53,9 @@ public class MainFrame extends JFrame {
 
         toolBar = new Toolbar();
         add(toolBar, BorderLayout.NORTH);
+
+        palette = new Palette();
+        add(palette, BorderLayout.EAST);
 
         JTree projectExplorer = mapTree.generateTree(ApplicationFramework.getInstance().getMapRepository().getProjectExplorer());
 

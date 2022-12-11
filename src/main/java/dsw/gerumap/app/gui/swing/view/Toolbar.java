@@ -15,7 +15,7 @@ public class Toolbar extends JToolBar {
         btnExit.setAction(MainFrame.getInstance().getActionManager().getExitAction());
         btnExit.setIcon(new ImageIcon("src\\main\\resources\\images\\log-out.png"));
         add(btnExit);
-         */
+        */
 
         add(MainFrame.getInstance().getActionManager().getExitAction());
         add(MainFrame.getInstance().getActionManager().getNewProjectAction());
