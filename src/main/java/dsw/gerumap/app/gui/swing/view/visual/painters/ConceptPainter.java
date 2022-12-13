@@ -2,7 +2,8 @@ package main.java.dsw.gerumap.app.gui.swing.view.visual.painters;
 
 import lombok.Getter;
 import lombok.Setter;
-import main.java.dsw.gerumap.app.gui.swing.view.visual.Element;
+import main.java.dsw.gerumap.app.gui.swing.view.visual.Concept;
+import main.java.dsw.gerumap.app.repository.implementation.Element;
 
 import java.awt.*;
 @Getter
@@ -10,25 +11,14 @@ import java.awt.*;
 
 public class ConceptPainter extends ElementPainter{
 
-
-
-    public ConceptPainter(Element element) {
-        super(element);
-    }
+    Concept concept;
 
     @Override
-    public void draw(Graphics2D g, Element element) {
-        g.setPaint(Color.RED);
-        g.setStroke(element.getStroke());
-        g.draw(getShape());
+    public void draw(Graphics g) {
+        g.setColor(this.concept.getColor());
+        g.drawOval(this.concept.getX(), this.concept.getY(), 200, 100);
+        g.drawString(this.concept.getName(), getShape().getBounds().x, getShape().getBounds().y);
 
-        g.fill(getShape());
-
-
-
-        g.setColor(element.getColour());
-        g.draw(shape);
-        g.drawString(element.toString(), getShape().getBounds().x, getShape().getBounds().y);
     }
 
     @Override

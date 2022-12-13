@@ -17,7 +17,7 @@ public class Palette extends JToolBar {
         add(MainFrame.getInstance().getActionManager().getDeleteAction());
         addSeparator();
         add(MainFrame.getInstance().getActionManager().getMoveAction());
-        addSeparator();
+        add(Box.createGlue());
 
         //dodati edit
 

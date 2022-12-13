@@ -135,10 +135,8 @@ public class ProjectView extends JPanel implements Subscriber {
         this.sm.setMoveState();
     }
 
-    // da li nama treba nesto poput calculate result?
-
-    public void clickedMouse(int x, int y, MindMap mindMap){
-        this.sm.getCurrentState();
+    public void misKliknut(int x, int y, MindMap mindMap){
+        this.sm.getCurrentState().misKliknut(x, y, mindMap);
     }
 
 }

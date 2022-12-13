@@ -20,5 +20,6 @@ public class ConceptAction extends AbstractGerumapAction {
     @Override
     public void actionPerformed(ActionEvent e) {
         MainFrame.getInstance().getProjectView().startConceptState();
+        System.out.println("Doslo je do ovde");
     }
 }

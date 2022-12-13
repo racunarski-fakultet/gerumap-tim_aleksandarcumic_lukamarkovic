@@ -10,6 +10,7 @@ import java.awt.event.MouseListener;
 public class MouseController implements MouseListener {
 
     private MapView mapView;
+
     public MouseController(MapView mapView){
         this.mapView = mapView;
     }
@@ -21,7 +22,7 @@ public class MouseController implements MouseListener {
 
     @Override
     public void mousePressed(MouseEvent e) {
-        MainFrame.getInstance().getProjectView().clickedMouse(e.getLocationOnScreen().x, e.getLocationOnScreen().y, mapView.getMindMap());
+        MainFrame.getInstance().getProjectView().misKliknut(e.getLocationOnScreen().x, e.getLocationOnScreen().y, mapView.getMindMap());
     }
 
     @Override

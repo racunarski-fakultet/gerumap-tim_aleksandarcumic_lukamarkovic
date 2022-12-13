@@ -1,16 +1,14 @@
 package main.java.dsw.gerumap.app.gui.swing.view.visual.painters;
 
-import main.java.dsw.gerumap.app.gui.swing.view.visual.Element;
+import main.java.dsw.gerumap.app.repository.implementation.Element;
 
 import java.awt.*;
 
 public class LinkPainter extends ElementPainter{
-    public LinkPainter(Element element) {
-        super(element);
-    }
 
     @Override
-    public void draw(Graphics2D g, Element element) {
+    public void draw(Graphics g) {
+        g.setColor(getElement().getColor());
 
     }
 
