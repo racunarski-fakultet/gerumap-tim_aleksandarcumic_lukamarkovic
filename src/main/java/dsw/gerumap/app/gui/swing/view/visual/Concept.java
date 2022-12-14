@@ -9,7 +9,7 @@ import main.java.dsw.gerumap.app.repository.implementation.Element;
 
 public class Concept extends Element {
     private String name;
-    private int w = 200, h =  100;
+    private int w = 100, h =  50;
     private int x, y;
 
     public Concept(String name, int x, int y){

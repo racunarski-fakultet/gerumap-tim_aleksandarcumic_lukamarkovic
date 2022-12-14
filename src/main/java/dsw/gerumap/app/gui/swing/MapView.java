@@ -43,9 +43,10 @@ public class MapView extends JPanel implements Subscriber{
         super.paintComponent(g);
         for(ElementPainter p : painters){
             for(MapNode mn : mindMap.getChildren()) {
-                p.draw(g, (Element) mn);
+                p.draw(g);
             }
         }
+        System.out.println("paint");
     }
 
     public void setMap(MindMap map){

@@ -11,14 +11,15 @@ import java.awt.*;
 
 public class LinkPainter extends ElementPainter{
 
-    Shape shape;
+    private Shape shape;
+    private Element e;
 
     public LinkPainter(Element e, Shape s){
-        super(e);
+        this.e = e;
         this.shape = s;
     }
     @Override
-    public void draw(Graphics g, Element e) {
+    public void draw(Graphics g) {
         Graphics2D g2d = (Graphics2D) g;
         g2d.setColor(getElement().getColor());
         g2d.setStroke(new BasicStroke(e.getStroke()));
@@ -26,7 +27,7 @@ public class LinkPainter extends ElementPainter{
     }
 
     @Override
-    public boolean elementAt(Element element, Point pos) {
+    public boolean elementAt(Point pos) {
         return getShape().contains(pos);
     }
 }
