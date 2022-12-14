@@ -1,13 +1,15 @@
 package main.java.dsw.gerumap.app.gui.swing.view.controller;
 
+import main.java.dsw.gerumap.app.Observer.Subscriber;
 import main.java.dsw.gerumap.app.gui.swing.MapView;
 import main.java.dsw.gerumap.app.gui.swing.ProjectView;
 import main.java.dsw.gerumap.app.gui.swing.view.MainFrame;
 
+import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-public class MouseController implements MouseListener {
+public class MouseController implements MouseListener, Subscriber {
 
     private MapView mapView;
 
@@ -17,12 +19,14 @@ public class MouseController implements MouseListener {
 
     @Override
     public void mouseClicked(MouseEvent e) {
+        Point pos = e.getPoint();
 
+        MainFrame.getInstance().getProjectView().misKliknut(pos.x, pos.y, mapView);
     }
 
     @Override
     public void mousePressed(MouseEvent e) {
-        MainFrame.getInstance().getProjectView().misKliknut(e.getLocationOnScreen().x, e.getLocationOnScreen().y, mapView.getMindMap());
+
     }
 
     @Override
@@ -37,6 +41,11 @@ public class MouseController implements MouseListener {
 
     @Override
     public void mouseExited(MouseEvent e) {
+
+    }
+
+    @Override
+    public void update(Object obj) {
 
     }
 }

@@ -74,7 +74,7 @@ public class ProjectView extends JPanel implements Subscriber {
 
 
         for(MapNode child: ((Project) selectedProject).getChildren()) {
-            MapView tab = new MapView((MindMap) child);
+            MapView tab = new MapView((MindMap) child, tabbedPane.getTabCount());
             tabs.add(tab);
         }
 
@@ -116,6 +116,7 @@ public class ProjectView extends JPanel implements Subscriber {
     }
 
     public void startConceptState(){
+        System.out.println("Usao je u startCS");
         this.sm.setConceptState();
     }
 
@@ -135,8 +136,9 @@ public class ProjectView extends JPanel implements Subscriber {
         this.sm.setMoveState();
     }
 
-    public void misKliknut(int x, int y, MindMap mindMap){
-        this.sm.getCurrentState().misKliknut(x, y, mindMap);
+    public void misKliknut(int x, int y, MapView map){
+        this.sm.getCurrentState().misKliknut(x, y, map);
+        System.out.println("Uslo je u ProjectView miskliknut");
     }
 
 }

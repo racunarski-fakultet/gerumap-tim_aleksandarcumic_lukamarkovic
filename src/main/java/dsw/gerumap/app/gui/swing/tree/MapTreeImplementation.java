@@ -5,20 +5,14 @@ import main.java.dsw.gerumap.app.gui.swing.tree.model.MapTreeItem;
 import main.java.dsw.gerumap.app.gui.swing.tree.view.MapTreeView;
 import main.java.dsw.gerumap.app.message.EventType;
 import main.java.dsw.gerumap.app.core.MessageGenerator;
-import main.java.dsw.gerumap.app.message.implementation.MessageGeneratorImplementation;
 import main.java.dsw.gerumap.app.repository.composite.MapNode;
 import main.java.dsw.gerumap.app.repository.composite.MapNodeComposite;
 import main.java.dsw.gerumap.app.repository.factory.NodeFactory;
 import main.java.dsw.gerumap.app.repository.factory.factoryImplementation.utils.FactoryUtils;
-import main.java.dsw.gerumap.app.repository.implementation.Element;
-import main.java.dsw.gerumap.app.repository.implementation.MindMap;
-import main.java.dsw.gerumap.app.repository.implementation.Project;
 import main.java.dsw.gerumap.app.repository.implementation.ProjectExplorer;
 
 import javax.swing.*;
 import javax.swing.tree.DefaultTreeModel;
-import java.io.IOException;
-import java.util.Random;
 
 public class MapTreeImplementation implements MapTree {
 

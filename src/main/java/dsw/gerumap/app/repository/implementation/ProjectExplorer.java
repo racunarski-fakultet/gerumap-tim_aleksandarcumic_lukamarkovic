@@ -1,5 +1,6 @@
 package main.java.dsw.gerumap.app.repository.implementation;
 
+import main.java.dsw.gerumap.app.Observer.Subscriber;
 import main.java.dsw.gerumap.app.repository.composite.MapNode;
 import main.java.dsw.gerumap.app.repository.composite.MapNodeComposite;
 
@@ -31,5 +32,19 @@ public class ProjectExplorer extends MapNodeComposite {
     }
 
 
+    @Override
+    public void addSubscriber(Subscriber subscriber) {
+
+    }
+
+    @Override
+    public void removeSubscriber(Subscriber subscriber) {
+
+    }
+
+    @Override
+    public void notifySubscriber(Object obj) {
+
+    }
 }
 

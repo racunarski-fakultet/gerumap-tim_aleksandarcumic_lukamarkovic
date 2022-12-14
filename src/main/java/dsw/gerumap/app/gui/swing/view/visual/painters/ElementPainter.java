@@ -11,9 +11,10 @@ import java.awt.*;
 public abstract class ElementPainter {
 
     private Element element;
-    protected Shape shape;
 
-    public abstract void draw(Graphics g);
+    public ElementPainter(Element element){this.element = element;}
+
+    public abstract void draw(Graphics g, Element element);
 
     public abstract boolean elementAt(Element element, Point pos);
 

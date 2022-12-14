@@ -1,12 +1,14 @@
 package main.java.dsw.gerumap.app.gui.swing.state.model;
 
 import main.java.dsw.gerumap.app.Observer.Subscriber;
+import main.java.dsw.gerumap.app.gui.swing.MapView;
 import main.java.dsw.gerumap.app.gui.swing.state.State;
 import main.java.dsw.gerumap.app.repository.implementation.MindMap;
 
 import java.awt.event.MouseEvent;
 
 public class LinkState implements State {
+
 
     @Override
     public void misPovucen(MouseEvent mouseEvent, MindMap mindMap) {
@@ -19,22 +21,7 @@ public class LinkState implements State {
     }
 
     @Override
-    public void misKliknut(int x, int y, MindMap map) {
-
-    }
-
-    @Override
-    public void addSubscriber(Subscriber subscriber) {
-
-    }
-
-    @Override
-    public void removeSubscriber(Subscriber subscriber) {
-
-    }
-
-    @Override
-    public void notifySubscriber(Object obj) {
+    public void misKliknut(int x, int y, MapView map) {
 
     }
 }

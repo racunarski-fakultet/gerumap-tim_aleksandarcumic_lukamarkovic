@@ -28,6 +28,7 @@ public class StateManager {
     }
 
     public void setConceptState() {
+        System.out.println("Usao je u setCS");
         currentState = conceptState;
     }
 
