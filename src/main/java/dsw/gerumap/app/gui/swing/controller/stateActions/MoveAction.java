@@ -33,6 +33,6 @@ public class MoveAction extends AbstractGerumapAction {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        MainFrame.getInstance().getProjectView().startConceptState();
+        MainFrame.getInstance().getProjectView().startMoveState();
     }
 }

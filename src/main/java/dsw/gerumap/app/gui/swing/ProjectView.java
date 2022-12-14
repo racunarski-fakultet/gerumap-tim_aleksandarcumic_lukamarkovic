@@ -116,7 +116,6 @@ public class ProjectView extends JPanel implements Subscriber {
     }
 
     public void startConceptState(){
-        System.out.println("Usao je u startCS");
         this.sm.setConceptState();
     }
 
