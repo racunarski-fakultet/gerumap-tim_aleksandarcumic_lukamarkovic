@@ -12,25 +12,24 @@ import java.awt.*;
 public class ConceptPainter extends ElementPainter{
 
     private Shape shape;
-    private Concept concept;
+    private Element element;
 
-    public ConceptPainter(Concept concept, Shape shape){
-        this.concept = concept;
+    public ConceptPainter(Element element, Shape shape){
+        this.element = element;
         this.shape = shape;
     }
 
     @Override
     public void draw(Graphics g) {
         Graphics2D g2D = (Graphics2D) g;
-        Element e = (Element) concept;
-        g2D.setColor(e.getColor());
-        g2D.setStroke(new BasicStroke(e.getStroke()));
+        g2D.setColor(element.getColor());
+        g2D.setStroke(new BasicStroke(element.getStroke()));
         g2D.draw(getShape());
 
-        g2D.setPaint(Color.BLACK);
-        Concept c = (Concept) e;
-        g.drawString(c.getName(), (int)c.getX() + 25, (int)c.getY() + 30);
-
+        if(element instanceof Concept) {
+            Concept c = (Concept) element;
+            g.drawString(c.getName(), (int) c.getX() + 25, (int) c.getY() + 30);
+        }
     }
 
     @Override

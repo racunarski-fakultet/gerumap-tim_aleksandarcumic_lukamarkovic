@@ -28,15 +28,6 @@ public class DeleteState implements State {
 
     @Override
     public void misKliknut(int x, int y, MapView map) {
-        System.out.println("Usao je u DS");
-        Concept concept = new Concept("", x, y);
-
-
-        map.getMindMap().getChildren().remove(concept);
-
-
-
-
 
     }
 }

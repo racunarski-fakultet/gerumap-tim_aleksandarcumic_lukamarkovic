@@ -3,6 +3,7 @@ package main.java.dsw.gerumap.app.gui.swing;
 import lombok.Getter;
 import lombok.Setter;
 import main.java.dsw.gerumap.app.Observer.Subscriber;
+import main.java.dsw.gerumap.app.gui.swing.view.SelectedItems;
 import main.java.dsw.gerumap.app.gui.swing.view.controller.MouseController;
 import main.java.dsw.gerumap.app.gui.swing.view.visual.painters.ElementPainter;
 import main.java.dsw.gerumap.app.repository.composite.MapNode;
@@ -26,6 +27,7 @@ public class MapView extends JPanel implements Subscriber{
     private int index;
     private List<ElementPainter> painters;
 
+    private SelectedItems selectedItems;
 
     public MapView(MindMap mindMap, int index){
         setLayout(new FlowLayout());
@@ -35,6 +37,7 @@ public class MapView extends JPanel implements Subscriber{
         setMap(mindMap);
 //        this.mindMap= mindMap;
         painters = new ArrayList<>();
+        selectedItems = new SelectedItems();
         addMouseListener(new MouseController(this));
     }
 

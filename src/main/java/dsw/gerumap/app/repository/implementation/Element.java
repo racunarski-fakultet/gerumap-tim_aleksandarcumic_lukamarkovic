@@ -17,9 +17,11 @@ public class Element extends MapNode {
     private int stroke = 2;
     private Color color = Color.BLACK;
 
-    public Element(Color color, int stroke){
+    public Element(String name, MapNode parent, Color color, int stroke){
+        super(name, parent);
         this.color = color;
         this.stroke = stroke;
+        notifySubscriber(this);
     }
 
     public Element(String name, MapNode parent){
