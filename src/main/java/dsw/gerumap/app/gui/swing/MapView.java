@@ -14,6 +14,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.geom.AffineTransform;
 import java.awt.geom.GeneralPath;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +22,16 @@ import java.util.List;
 @Getter
 @Setter
 public class MapView extends JPanel implements Subscriber{
+
+
+    double translateX = 0;
+    double translateY = 0;
+    double scalingf = 1;
+
+
+    private AffineTransform transformation = new AffineTransform();
+
+
     private MindMap mindMap;
     MouseController mouseController;
     private JLabel lbl;
@@ -41,9 +52,13 @@ public class MapView extends JPanel implements Subscriber{
         addMouseListener(new MouseController(this));
     }
 
+
+
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
+
+        ((Graphics2D) g).setTransform(transformation);
         for(ElementPainter p : painters){
             for(MapNode mn : mindMap.getChildren()) {
                 p.draw(g);
@@ -69,6 +84,25 @@ public class MapView extends JPanel implements Subscriber{
             return;
         }
         tP.setTitleAt(index, mindMap.getName());
+    }
+
+
+    private void setUpTransformation(){
+        transformation.setToScale(scalingf,scalingf);
+        transformation.translate(translateX,translateY);
+        repaint();
+    }
+
+    public void zoomIn(){
+        scalingf *= 1.2;
+        if(scalingf > 3) scalingf = 3;
+        setUpTransformation();
+
+    }
+    public void zoomOut(){
+        scalingf *= 0.8;
+        if(scalingf < 0.4) scalingf = 0.4;
+        setUpTransformation();
     }
 
     @Override

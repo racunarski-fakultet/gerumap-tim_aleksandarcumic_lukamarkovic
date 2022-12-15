@@ -1,5 +1,7 @@
 package main.java.dsw.gerumap.app.gui.swing.view;
 
+import com.sun.tools.javac.Main;
+
 import javax.swing.*;
 
 public class Palette extends JToolBar {
@@ -17,6 +19,10 @@ public class Palette extends JToolBar {
         add(MainFrame.getInstance().getActionManager().getDeleteAction());
         addSeparator();
         add(MainFrame.getInstance().getActionManager().getMoveAction());
+        addSeparator();
+        add(MainFrame.getInstance().getActionManager().getZoomInAction());
+        addSeparator();
+        add(MainFrame.getInstance().getActionManager().getZoomOutAction());
         add(Box.createGlue());
 
         //dodati edit

@@ -12,7 +12,7 @@ public class LinkAction extends AbstractGerumapAction {
     public LinkAction () {
         putValue(ACCELERATOR_KEY, KeyStroke.getKeyStroke(
                 KeyEvent.VK_L, ActionEvent.CTRL_MASK));
-        //putValue(SMALL_ICON, loadIcon("/images/plus.png")); dodati sliku
+        putValue(SMALL_ICON, loadIcon("/images/Link.png"));
         putValue(NAME, "Link");
         putValue(SHORT_DESCRIPTION, "Link");
     }

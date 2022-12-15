@@ -14,7 +14,7 @@ public class MoveAction extends AbstractGerumapAction {
     public MoveAction () {
         putValue(ACCELERATOR_KEY, KeyStroke.getKeyStroke(
                 KeyEvent.VK_M, ActionEvent.CTRL_MASK));
-        //putValue(SMALL_ICON, loadIcon("/images/plus.png")); dodati sliku
+        putValue(SMALL_ICON, loadIcon("/images/Move.png"));
         putValue(NAME, "Move");
         putValue(SHORT_DESCRIPTION, "Move");
     }

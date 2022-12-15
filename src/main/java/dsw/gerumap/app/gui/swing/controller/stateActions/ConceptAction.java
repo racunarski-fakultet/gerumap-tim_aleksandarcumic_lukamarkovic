@@ -12,7 +12,7 @@ public class ConceptAction extends AbstractGerumapAction {
     public ConceptAction () {
         putValue(ACCELERATOR_KEY, KeyStroke.getKeyStroke(
                 KeyEvent.VK_C, ActionEvent.CTRL_MASK));
-        //putValue(SMALL_ICON, loadIcon("/images/plus.png")); dodati sliku
+        putValue(SMALL_ICON, loadIcon("/images/Concept1.png"));
         putValue(NAME, "Concept");
         putValue(SHORT_DESCRIPTION, "Concept");
     }

@@ -31,6 +31,8 @@ public class ProjectView extends JPanel implements Subscriber {
 
     private MapNode project;
 
+
+
     private JTabbedPane tabbedPane;
     private List<MapView> tabs;
 
@@ -140,4 +142,7 @@ public class ProjectView extends JPanel implements Subscriber {
         System.out.println("Uslo je u ProjectView miskliknut");
     }
 
+    public MapView getMapView(){
+        return  ((MapView)tabbedPane.getSelectedComponent());
+    }
 }

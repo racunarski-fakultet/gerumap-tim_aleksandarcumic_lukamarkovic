@@ -14,6 +14,7 @@ public class StateManager {
     private SelectState selectState;
     private MoveState moveState;
 
+
     public StateManager(){
         initStates();
     }
@@ -46,6 +47,10 @@ public class StateManager {
     public void setMoveState() {
         this.currentState = moveState;
     }
+
+
+
+
 
     public State getCurrentState(){
         return currentState;

@@ -7,18 +7,18 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 
-public class SelectAction extends AbstractGerumapAction {
+public class ZoomOutAction extends AbstractGerumapAction {
 
-    public SelectAction () {
+    public ZoomOutAction () {
         putValue(ACCELERATOR_KEY, KeyStroke.getKeyStroke(
-                KeyEvent.VK_S, ActionEvent.CTRL_MASK));
-        putValue(SMALL_ICON, loadIcon("/images/Select.png"));
-        putValue(NAME, "Select");
-        putValue(SHORT_DESCRIPTION, "Select");
+                KeyEvent.VK_C, ActionEvent.CTRL_MASK));
+        putValue(SMALL_ICON, loadIcon("/images/ZoomOut.png"));
+        putValue(NAME, "Zoom Out");
+        putValue(SHORT_DESCRIPTION, "Zoom Out");
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        MainFrame.getInstance().getProjectView().startSelectState();
+        MainFrame.getInstance().getProjectView().getMapView().zoomOut();
     }
 }
