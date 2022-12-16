@@ -28,8 +28,8 @@ public class ConceptState implements State {
     @Override
     public void misKliknut(int x, int y, MapView map) {
         Concept concept = new Concept("Concept" + map.getMindMap().getChildren().size(), map.getMindMap(), Color.BLACK, 2, x, y);
-        Ellipse2D shape = new Ellipse2D.Float(concept.getX(), concept.getY(), concept.getW(), concept.getH());
-        ConceptPainter cP = new ConceptPainter(concept, shape);
+//        Ellipse2D shape = new Ellipse2D.Float(concept.getX(), concept.getY(), concept.getW(), concept.getH());
+        ConceptPainter cP = new ConceptPainter(concept);
         map.getPainters().add(cP);
         map.getMindMap().addChild(concept);
     }

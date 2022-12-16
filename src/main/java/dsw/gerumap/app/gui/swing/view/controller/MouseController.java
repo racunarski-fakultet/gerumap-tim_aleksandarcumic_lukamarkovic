@@ -31,6 +31,7 @@ public class MouseController extends MouseAdapter implements Subscriber {
 
     @Override
     public void mouseDragged(MouseEvent e) {
+        System.out.println("Usao u mousedragged");
         Point pos = e.getPoint();
         MainFrame.getInstance().getProjectView().misPovucen(pos.x, pos.y, mapView);
     }

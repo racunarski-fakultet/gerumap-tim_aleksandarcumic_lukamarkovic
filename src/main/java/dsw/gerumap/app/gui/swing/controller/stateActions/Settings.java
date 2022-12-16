@@ -17,8 +17,8 @@ import java.util.Objects;
 public class Settings extends JDialog {
 
 
-    JLabel imeLabel = new JLabel("oces promenis ime?");
-    JLabel strokeLabel = new JLabel("Oces i debljinu?");
+    JLabel imeLabel = new JLabel("Change the name: ");
+    JLabel strokeLabel = new JLabel("Change stroke: ");
     JTextField imeTf = new JTextField(16);
     JTextField strokeTf = new JTextField(16);
 

@@ -43,6 +43,7 @@ public class MapView extends JPanel implements Subscriber{
         painters = new ArrayList<>();
         selectedItems = new SelectedItems();
         addMouseListener(new MouseController(this));
+        addMouseMotionListener(new MouseController(this));
     }
 
 

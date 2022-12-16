@@ -6,6 +6,8 @@ import main.java.dsw.gerumap.app.gui.swing.view.visual.Concept;
 import main.java.dsw.gerumap.app.repository.implementation.Element;
 
 import java.awt.*;
+import java.awt.geom.Ellipse2D;
+
 @Getter
 @Setter
 
@@ -13,10 +15,11 @@ public class ConceptPainter extends ElementPainter{
 
     private Shape shape;
     private Element element;
+    private Concept c;
 
-    public ConceptPainter(Element element, Shape shape){
+    public ConceptPainter(Element element){
         this.element = element;
-        this.shape = shape;
+        c = (Concept) element;
     }
 
     @Override
@@ -24,7 +27,8 @@ public class ConceptPainter extends ElementPainter{
         Graphics2D g2D = (Graphics2D) g;
         g2D.setColor(element.getColor());
         g2D.setStroke(new BasicStroke(element.getStroke()));
-        g2D.draw(getShape());
+        shape = new Ellipse2D.Float(c.getX(), c.getY(), c.getW(), c.getH());
+        g2D.draw(shape);
 
         if(element instanceof Concept) {
             Concept c = (Concept) element;

@@ -35,4 +35,11 @@ public class Concept extends Element {
         this.y = y;
         notifySubscriber(this);
     }
+
+    public void setPos(int x, int y){
+        this.x = x;
+        this.y = y;
+        notifySubscriber(this);
+    }
+
 }
