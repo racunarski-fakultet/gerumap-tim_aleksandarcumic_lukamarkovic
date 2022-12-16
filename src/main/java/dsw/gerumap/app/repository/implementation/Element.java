@@ -17,6 +17,8 @@ public class Element extends MapNode {
     private int stroke = 2;
     private Color color = Color.BLACK;
 
+    private Color realColor = Color.BLACK;
+
     public Element(String name, MapNode parent, Color color, int stroke){
         super(name, parent);
         this.color = color;

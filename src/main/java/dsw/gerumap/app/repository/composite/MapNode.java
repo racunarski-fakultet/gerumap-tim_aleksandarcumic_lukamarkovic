@@ -38,6 +38,6 @@ public abstract  class MapNode implements Publisher {
 
     public void setName(String name) {
         this.name = name;
-        notify();
+        //notify();
     }
 }

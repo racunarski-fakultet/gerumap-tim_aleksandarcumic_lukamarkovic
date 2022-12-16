@@ -39,7 +39,7 @@ public class SelectState implements State {
 
         if(!(map.getSelectedItems().getElements().isEmpty())) {
             for(Element el : map.getSelectedItems().getElements()){
-                el.setColor(Color.BLACK);
+                el.setColor(el.getRealColor());
             }
             map.getSelectedItems().getElements().clear();
         }
