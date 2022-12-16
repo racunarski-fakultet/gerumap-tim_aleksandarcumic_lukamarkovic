@@ -3,19 +3,14 @@ package main.java.dsw.gerumap.app.gui.swing;
 import lombok.Getter;
 import lombok.Setter;
 import main.java.dsw.gerumap.app.Observer.Subscriber;
-import main.java.dsw.gerumap.app.gui.swing.view.SelectedItems;
 import main.java.dsw.gerumap.app.gui.swing.view.controller.MouseController;
 import main.java.dsw.gerumap.app.gui.swing.view.visual.painters.ElementPainter;
 import main.java.dsw.gerumap.app.repository.composite.MapNode;
-import main.java.dsw.gerumap.app.repository.implementation.Element;
 import main.java.dsw.gerumap.app.repository.implementation.MindMap;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.awt.geom.AffineTransform;
-import java.awt.geom.GeneralPath;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,9 +23,7 @@ public class MapView extends JPanel implements Subscriber{
     double translateY = 0;
     double scalingf = 1;
 
-
     private AffineTransform transformation = new AffineTransform();
-
 
     private MindMap mindMap;
     MouseController mouseController;

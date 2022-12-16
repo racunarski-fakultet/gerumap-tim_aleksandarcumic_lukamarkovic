@@ -8,8 +8,8 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 
 public interface State{
-    void misPovucen(MouseEvent mouseEvent, MindMap mindMap);
-    void misOtpusten(MouseEvent mouseEvent, MindMap mindMap);
+    void misPovucen(int x, int y, MapView map);
+    void misOtpusten(int x, int y, MapView map);
     void misKliknut(int x, int y, MapView map);
 
 }

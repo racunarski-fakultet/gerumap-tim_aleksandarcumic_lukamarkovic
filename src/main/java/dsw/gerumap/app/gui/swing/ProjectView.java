@@ -139,7 +139,14 @@ public class ProjectView extends JPanel implements Subscriber {
 
     public void misKliknut(int x, int y, MapView map){
         this.sm.getCurrentState().misKliknut(x, y, map);
-        System.out.println("Uslo je u ProjectView miskliknut");
+    }
+
+    public void misPovucen(int x, int y, MapView map){
+        this.sm.getCurrentState().misPovucen(x, y, map);
+    }
+
+    public void misOtpusten(int x, int y, MapView map){
+        this.sm.getCurrentState().misOtpusten(x, y, map);
     }
 
     public MapView getMapView(){

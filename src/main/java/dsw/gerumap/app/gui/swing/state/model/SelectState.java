@@ -14,13 +14,23 @@ import java.awt.event.MouseEvent;
 
 public class SelectState implements State {
 
+    private int flag = 0;
     @Override
-    public void misPovucen(MouseEvent mouseEvent, MindMap mindMap) {
+    public void misPovucen(int x, int y, MapView map) {
+        for(ElementPainter painter : map.getPainters()){
+            Concept c = (Concept) painter.getElement();
 
+            if(map.getSelectedItems().getElements().contains(c)){
+                if(flag == 1){
+                    c.setX(x);
+                    c.setY(y);
+                }
+            }
+        }
     }
 
     @Override
-    public void misOtpusten(MouseEvent mouseEvent, MindMap mindMap) {
+    public void misOtpusten(int x, int y, MapView map) {
 
     }
 
@@ -37,9 +47,8 @@ public class SelectState implements State {
         for(ElementPainter p : map.getPainters()){
             Point pos = new Point(x, y);
             if(p.elementAt(pos)){
-                map.getSelectedItems().getElements().add(p.getElement());
-                System.out.println(map.getSelectedItems().getElements().toString());
-                System.out.println("selektovan");
+                map.getSelectedItems().addElement(p.getElement());
+                flag = 1;
                 p.getElement().setColor(Color.BLUE);
                 map.update(map);
             }

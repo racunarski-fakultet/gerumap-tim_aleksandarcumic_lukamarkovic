@@ -1,5 +1,7 @@
 package main.java.dsw.gerumap.app.gui.swing.view.visual;
 
+import javafx.scene.Node;
+import javafx.scene.shape.Line;
 import main.java.dsw.gerumap.app.repository.implementation.Element;
 
 public class Link extends Element {

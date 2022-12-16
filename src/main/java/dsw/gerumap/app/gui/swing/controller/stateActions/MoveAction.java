@@ -19,18 +19,6 @@ public class MoveAction extends AbstractGerumapAction {
         putValue(SHORT_DESCRIPTION, "Move");
     }
 
-    public void misKliknut(MouseEvent e){
-
-    }
-
-    public void misPovucen(MouseEvent e){
-
-    }
-
-    public void misOtpusten(MouseEvent e){
-
-    }
-
     @Override
     public void actionPerformed(ActionEvent e) {
         MainFrame.getInstance().getProjectView().startMoveState();
