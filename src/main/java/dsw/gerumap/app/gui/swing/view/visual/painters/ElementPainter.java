@@ -19,5 +19,4 @@ public abstract class ElementPainter {
 
     public abstract boolean elementAt(Point pos);
 
-
 }
