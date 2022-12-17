@@ -41,6 +41,7 @@ public class SelectState implements State {
             }
             if(msp.getShape() == null){
                 map.getPainters().remove(msp);
+                return;
             }
 
             if(msp.getShape().intersects(painter.getShape().getBounds().getX(), painter.getShape().getBounds().getY(), painter.getShape().getBounds().getWidth(), painter.getShape().getBounds().getHeight())){
