@@ -19,21 +19,32 @@ public class MouseController extends MouseAdapter implements Subscriber {
 
     @Override
     public void mousePressed(MouseEvent e) {
+
         Point pos = e.getPoint();
-        MainFrame.getInstance().getProjectView().misKliknut(pos.x, pos.y, mapView);
+        double scaling = mapView.getScalingf();
+        int x = (int) (pos.x / scaling);
+        int y = (int) (pos.y / scaling);
+
+        MainFrame.getInstance().getProjectView().misKliknut(x, y, mapView);
     }
 
     @Override
     public void mouseReleased(MouseEvent e) {
         Point pos = e.getPoint();
-        MainFrame.getInstance().getProjectView().misOtpusten(pos.x, pos.y, mapView);
+        double scaling = mapView.getScalingf();
+        int x = (int) (pos.x / scaling);
+        int y = (int) (pos.y / scaling);
+        MainFrame.getInstance().getProjectView().misOtpusten(x, y, mapView);
     }
 
     @Override
     public void mouseDragged(MouseEvent e) {
         System.out.println("Usao u mousedragged");
         Point pos = e.getPoint();
-        MainFrame.getInstance().getProjectView().misPovucen(pos.x, pos.y, mapView);
+        double scaling = mapView.getScalingf();
+        int x = (int) (pos.x / scaling);
+        int y = (int) (pos.y / scaling);
+        MainFrame.getInstance().getProjectView().misPovucen(x, y, mapView);
     }
 
     @Override

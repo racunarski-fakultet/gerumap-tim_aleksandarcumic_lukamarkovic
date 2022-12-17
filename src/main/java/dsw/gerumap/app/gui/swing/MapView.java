@@ -10,6 +10,8 @@ import main.java.dsw.gerumap.app.repository.implementation.MindMap;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.AdjustmentEvent;
+import java.awt.event.AdjustmentListener;
 import java.awt.geom.AffineTransform;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +19,8 @@ import java.util.List;
 @Getter
 @Setter
 public class MapView extends JPanel implements Subscriber{
+
+
 
 
     double translateX = 0;
@@ -27,6 +31,11 @@ public class MapView extends JPanel implements Subscriber{
 
     private MindMap mindMap;
     MouseController mouseController;
+
+
+
+    private JScrollPane scrollPane;
+
     private JLabel lbl;
     private int index;
     private List<ElementPainter> painters;
@@ -34,12 +43,21 @@ public class MapView extends JPanel implements Subscriber{
     private SelectedItems selectedItems;
 
     public MapView(MindMap mindMap, int index){
-        setLayout(new FlowLayout());
+        setLayout(new BorderLayout());
         lbl = new JLabel("");
         this.index = index;
-        add(lbl);
+        add(lbl,BorderLayout.NORTH);
+
+        scrollPane = new JScrollPane(this,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+
+
+
+        //add(scrollPane);
+
+
         setMap(mindMap);
-//        this.mindMap= mindMap;
+
+
         painters = new ArrayList<>();
         selectedItems = new SelectedItems();
         addMouseListener(new MouseController(this));
@@ -58,6 +76,7 @@ public class MapView extends JPanel implements Subscriber{
                 p.draw(g);
             }
         }
+
         System.out.println("paint");
     }
 
@@ -65,6 +84,7 @@ public class MapView extends JPanel implements Subscriber{
         this.mindMap = map;
         this.updateLabel();
         this.updateTabName();
+
         this.mindMap.addSubscriber(this);
     }
 
@@ -81,21 +101,23 @@ public class MapView extends JPanel implements Subscriber{
     }
 
 
+
     private void setUpTransformation(){
         transformation.setToScale(scalingf,scalingf);
         transformation.translate(translateX,translateY);
+
         repaint();
     }
 
     public void zoomIn(){
-        scalingf *= 1.2;
-        if(scalingf > 3) scalingf = 3;
+        scalingf *= 1.6;
+        if(scalingf > 4.096) scalingf = 4.096;
         setUpTransformation();
 
     }
     public void zoomOut(){
-        scalingf *= 0.8;
-        if(scalingf < 0.4) scalingf = 0.4;
+        scalingf *= 0.625;
+        if(scalingf < 0.390625) scalingf = 0.390625;
         setUpTransformation();
     }
 
@@ -105,6 +127,9 @@ public class MapView extends JPanel implements Subscriber{
             return;
         }
         updateLabel();
+
         repaint();
     }
+
+
 }
