@@ -9,6 +9,7 @@ import main.java.dsw.gerumap.app.repository.composite.MapNode;
 import main.java.dsw.gerumap.app.repository.composite.MapNodeComposite;
 import main.java.dsw.gerumap.app.repository.factory.NodeFactory;
 import main.java.dsw.gerumap.app.repository.factory.factoryImplementation.utils.FactoryUtils;
+import main.java.dsw.gerumap.app.repository.implementation.MindMap;
 import main.java.dsw.gerumap.app.repository.implementation.ProjectExplorer;
 
 import javax.swing.*;
@@ -64,6 +65,7 @@ public class MapTreeImplementation implements MapTree {
     private MapNode createChild(MapNode parent) {
         NodeFactory nf = FactoryUtils.getNodeFactory(parent);
         return nf.getNode(parent);
+
     }
 
 }

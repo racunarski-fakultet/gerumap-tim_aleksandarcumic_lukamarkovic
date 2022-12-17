@@ -75,8 +75,6 @@ public class MapView extends JPanel implements Subscriber{
                 p.draw(g2D);
 
         }
-
-        System.out.println("paint");
     }
 
     public void setMap(MindMap map){

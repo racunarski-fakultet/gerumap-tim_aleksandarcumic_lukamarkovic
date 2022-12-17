@@ -1,9 +1,12 @@
 package main.java.dsw.gerumap.app.gui.swing.controller.actions;
 
+import com.sun.tools.javac.Main;
 import main.java.dsw.gerumap.app.core.ApplicationFramework;
 import main.java.dsw.gerumap.app.gui.swing.tree.model.MapTreeItem;
 import main.java.dsw.gerumap.app.gui.swing.view.MainFrame;
 import main.java.dsw.gerumap.app.message.EventType;
+import main.java.dsw.gerumap.app.repository.implementation.MindMap;
+import main.java.dsw.gerumap.app.repository.implementation.Project;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -28,6 +31,20 @@ public class NewProjectAction extends AbstractGerumapAction {
             ApplicationFramework.getInstance().getMg().generate(EventType.NODENOTSELECTED);
             return;
         }
+
+        if(selected.getMapNode() instanceof MindMap){
+            ApplicationFramework.getInstance().getMg().generate(EventType.CANNOTADDELEMENT);
+            return;
+        }
+
+        if(selected.getMapNode() instanceof Project){
+            MainFrame.getInstance().getMapTree().addChild(selected);
+            if(!(((Project) selected.getMapNode()).getAuthor() == null)) {
+                MainFrame.getInstance().getProjectView().refreshWorkspace(selected.getMapNode());
+            }
+            return;
+        }
+
         MainFrame.getInstance().getMapTree().addChild(selected);
     }
 }

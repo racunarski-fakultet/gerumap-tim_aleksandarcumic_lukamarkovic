@@ -2,6 +2,7 @@ package main.java.dsw.gerumap.app.gui.swing.view.visual;
 
 import lombok.Getter;
 import lombok.Setter;
+import main.java.dsw.gerumap.app.gui.swing.MapView;
 import main.java.dsw.gerumap.app.gui.swing.view.visual.painters.LinkPainter;
 import main.java.dsw.gerumap.app.repository.composite.MapNode;
 import main.java.dsw.gerumap.app.repository.implementation.Element;

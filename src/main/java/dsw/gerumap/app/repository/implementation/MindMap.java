@@ -2,6 +2,7 @@ package main.java.dsw.gerumap.app.repository.implementation;
 
 
 import main.java.dsw.gerumap.app.Observer.Subscriber;
+import main.java.dsw.gerumap.app.gui.swing.view.MainFrame;
 import main.java.dsw.gerumap.app.repository.composite.MapNode;
 import main.java.dsw.gerumap.app.repository.composite.MapNodeComposite;
 

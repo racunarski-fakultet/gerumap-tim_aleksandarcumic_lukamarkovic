@@ -39,7 +39,6 @@ public class MouseController extends MouseAdapter implements Subscriber {
 
     @Override
     public void mouseDragged(MouseEvent e) {
-        System.out.println("Usao u mousedragged");
         Point pos = e.getPoint();
         double scaling = mapView.getScalingf();
         int x = (int) (pos.x / scaling);
