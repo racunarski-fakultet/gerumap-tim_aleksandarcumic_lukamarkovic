@@ -34,6 +34,10 @@ public class LinkState implements State {
 
     @Override
     public void misOtpusten(int x, int y, MapView map) {
+
+        if(c1==null || c2 ==null){
+            return;
+        }
         pos2.setLocation(x, y);
 
 
@@ -80,6 +84,8 @@ public class LinkState implements State {
     public void misKliknut(int x, int y, MapView map) {
         pos1 = new Point(x, y);
         pos2 = new Point(x, y);
+        c1 = null;
+        c2 = null;
         nova.clear();
 
         for(ElementPainter p : map.getPainters()){
