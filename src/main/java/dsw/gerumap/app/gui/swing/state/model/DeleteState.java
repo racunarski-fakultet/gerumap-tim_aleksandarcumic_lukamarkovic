@@ -32,6 +32,7 @@ public class DeleteState implements State {
 
     @Override
     public void misKliknut(int x, int y, MapView map) {
+
         for(ElementPainter p : map.getPainters()){
             Point pos = new Point(x, y);
             if(p.elementAt(pos)){

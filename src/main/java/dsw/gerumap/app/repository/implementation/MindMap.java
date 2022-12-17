@@ -32,6 +32,7 @@ public class MindMap extends MapNodeComposite {
         if(child != null && child instanceof Element){
             Element element = (Element) child;
             this.getChildren().remove(element);
+            notifySubscriber(this);
         }
     }
     public MindMap(String name, MapNode parent, boolean template) {

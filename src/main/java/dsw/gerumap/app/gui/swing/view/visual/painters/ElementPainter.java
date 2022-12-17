@@ -12,6 +12,7 @@ import java.awt.*;
 public abstract class ElementPainter {
 
     private Element element;
+    private Shape shape;
 
     public ElementPainter(Element element){this.element = element;}
 

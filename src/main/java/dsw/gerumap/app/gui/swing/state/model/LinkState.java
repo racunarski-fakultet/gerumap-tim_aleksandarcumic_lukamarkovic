@@ -36,20 +36,44 @@ public class LinkState implements State {
     public void misOtpusten(int x, int y, MapView map) {
         pos2.setLocation(x, y);
 
+
+
         for(ElementPainter p : map.getPainters()){
-            if(p.elementAt(pos2)){
+
+            if(p.elementAt(pos2) && p.getElement() instanceof Concept){
                 linkPainter.setPos2(pos2);
 
                 c2 = (Concept) p.getElement();
                 link.setSecondTopic(c2);
 
-                c1.getLinkList().add(linkPainter);
-                c2.getLinkList().add(linkPainter);
-                map.getMindMap().addChild(link);
-            }else{
+
+            }
+        }
+
+        if(c1.equals(c2)){
+            map.getPainters().remove(linkPainter);
+        }
+
+        for(LinkPainter painter : c1.getLinkList()){
+            Link l1 = (Link) painter.getElement();
+            if(l1.equals(link)){
+                map.getPainters().remove(linkPainter);
+                map.update(this);
                 return;
             }
         }
+
+        for(LinkPainter painter : c2.getLinkList()){
+            Link l1 = (Link) painter.getElement();
+            if(l1.equals(link)){
+                map.getPainters().remove(linkPainter);
+                map.update(this);
+                return;
+            }
+        }
+        c1.getLinkList().add(linkPainter);
+        c2.getLinkList().add(linkPainter);
+        map.getMindMap().addChild(link);
     }
 
     @Override
@@ -65,7 +89,7 @@ public class LinkState implements State {
 
                 link = new Link("Link + " + map.getMindMap().getChildren().size(), c1.getParent(), Color.BLACK, 2, c1, c2);
 
-                linkPainter = new LinkPainter(pos1, pos2, p.getElement());
+                linkPainter = new LinkPainter(pos1, pos2, link);
                 nova.add(linkPainter);
             }
         }

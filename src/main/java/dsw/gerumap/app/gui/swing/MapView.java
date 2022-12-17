@@ -69,12 +69,11 @@ public class MapView extends JPanel implements Subscriber{
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-
-        ((Graphics2D) g).setTransform(transformation);
+        Graphics2D g2D = (Graphics2D) g;
+        g2D.setTransform(transformation);
         for(ElementPainter p : painters){
-            for(MapNode mn : mindMap.getChildren()) {
-                p.draw(g);
-            }
+                p.draw(g2D);
+
         }
 
         System.out.println("paint");

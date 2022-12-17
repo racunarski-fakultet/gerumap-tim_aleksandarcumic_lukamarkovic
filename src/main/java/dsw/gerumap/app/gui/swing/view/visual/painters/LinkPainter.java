@@ -33,7 +33,7 @@ public class LinkPainter extends ElementPainter{
         shape = new Line2D.Float(pos1.x, pos1.y, pos2.x, pos2.y);
 
         g2d.setStroke(new BasicStroke(getElement().getStroke()));
-        g2d.draw(shape);
+        g2d.draw(getShape());
 
     }
 

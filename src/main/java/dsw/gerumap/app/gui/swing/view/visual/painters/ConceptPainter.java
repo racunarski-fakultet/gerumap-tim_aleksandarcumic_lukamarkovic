@@ -27,12 +27,12 @@ public class ConceptPainter extends ElementPainter{
         Graphics2D g2D = (Graphics2D) g;
         g2D.setColor(element.getColor());
         g2D.setStroke(new BasicStroke(element.getStroke()));
-        shape = new Ellipse2D.Float(c.getX(), c.getY(), c.getW(), c.getH());
-        g2D.draw(shape);
+        shape = new Ellipse2D.Float(c.getX()-50, c.getY()-25, c.getW(), c.getH());
+        g2D.draw(getShape());
 
         if(element instanceof Concept) {
             Concept c = (Concept) element;
-            g.drawString(c.getName(), (int) c.getX() + 25, (int) c.getY() + 30);
+            g.drawString(c.getName(), (int) c.getX()-20 , (int) c.getY());
         }
     }
 

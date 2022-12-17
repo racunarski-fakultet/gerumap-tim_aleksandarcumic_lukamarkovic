@@ -23,6 +23,15 @@ public class Link extends Element {
         this.from = from;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Link) {
+            Link otherObj = (Link) obj;
+            return ((this.getFrom().equals(otherObj.getFrom()) && this.getTo().equals(otherObj.getTo())) ||
+                    (this.getFrom().equals(otherObj.getTo()) && this.getTo().equals(otherObj.getFrom())));
+        }
+        return false;
+    }
 
     public void setSecondTopic(Concept c2) {
         this.from = c2;
