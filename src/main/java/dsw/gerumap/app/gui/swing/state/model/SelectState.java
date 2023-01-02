@@ -35,12 +35,12 @@ public class SelectState implements State {
         msp.updatePoints(x2,y2,x,y);
         map.update(msp);
 
-        for(ElementPainter painter : map.getPainters()){
+        for(ElementPainter painter : map.getMindMap().getPainters()){
             if(painter instanceof MultiSelectionPainter){
                 continue;
             }
             if(msp.getShape() == null){
-                map.getPainters().remove(msp);
+                map.getMindMap().getPainters().remove(msp);
                 return;
             }
 
@@ -55,7 +55,7 @@ public class SelectState implements State {
     public void misOtpusten(int x, int y, MapView map) {
 
         for(ElementPainter painter: painters){
-            map.getPainters().remove(painter);
+            map.getMindMap().getPainters().remove(painter);
             msp = new MultiSelectionPainter();
 
         }
@@ -75,7 +75,7 @@ public class SelectState implements State {
         }
         painters.clear();
 
-        for(ElementPainter p : map.getPainters()){
+        for(ElementPainter p : map.getMindMap().getPainters()){
             Point pos = new Point(x, y);
             if(p.elementAt(pos)){
                 map.getSelectedItems().addElement(p.getElement());
@@ -93,7 +93,7 @@ public class SelectState implements State {
         }
         if(!painters.isEmpty()){
             for(ElementPainter p : painters){
-                map.getPainters().add(p);
+                map.getMindMap().getPainters().add(p);
             }
         }
     }

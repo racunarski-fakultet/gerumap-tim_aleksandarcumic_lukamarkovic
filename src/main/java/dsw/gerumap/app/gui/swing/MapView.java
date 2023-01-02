@@ -20,9 +20,6 @@ import java.util.List;
 @Setter
 public class MapView extends JPanel implements Subscriber{
 
-
-
-
     double translateX = 0;
     double translateY = 0;
     double scalingf = 1;
@@ -38,8 +35,6 @@ public class MapView extends JPanel implements Subscriber{
 
     private JLabel lbl;
     private int index;
-    private List<ElementPainter> painters;
-
     private SelectedItems selectedItems;
 
     public MapView(MindMap mindMap, int index){
@@ -58,7 +53,6 @@ public class MapView extends JPanel implements Subscriber{
         setMap(mindMap);
 
 
-        painters = new ArrayList<>();
         selectedItems = new SelectedItems();
         addMouseListener(new MouseController(this));
         addMouseMotionListener(new MouseController(this));
@@ -71,7 +65,7 @@ public class MapView extends JPanel implements Subscriber{
         super.paintComponent(g);
         Graphics2D g2D = (Graphics2D) g;
         g2D.setTransform(transformation);
-        for(ElementPainter p : painters){
+        for(ElementPainter p : mindMap.getPainters()){
                 p.draw(g2D);
 
         }

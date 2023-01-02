@@ -17,7 +17,7 @@ public class MoveState implements State {
     @Override
     public void misPovucen(int x, int y, MapView map) {
         if (flag == 1) {
-            for(ElementPainter p : map.getPainters()){
+            for(ElementPainter p : map.getMindMap().getPainters()){
                 if(p.getElement() instanceof Concept){
                     Concept t = (Concept) p.getElement();
                     if (map.getSelectedItems().getElements().contains(t)) {
@@ -52,7 +52,7 @@ public class MoveState implements State {
     public void misKliknut(int x, int y, MapView map) {
 
         Point point = new Point(x, y);
-        for(ElementPainter p : map.getPainters()) {
+        for(ElementPainter p : map.getMindMap().getPainters()) {
             if (p.getElement() instanceof Concept) {
                 Concept c = (Concept) p.getElement();
                 if (map.getSelectedItems().getElements().contains(c)) {

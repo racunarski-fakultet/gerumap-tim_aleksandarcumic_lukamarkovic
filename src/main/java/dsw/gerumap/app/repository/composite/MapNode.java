@@ -18,7 +18,7 @@ public abstract  class MapNode implements Publisher {
 
     private String name;
     @ToString.Exclude
-    private MapNode parent;
+    private transient MapNode parent;
     protected List<Subscriber> subs;
 
     public MapNode(String name, MapNode parent) {

@@ -15,6 +15,7 @@ public class ProjectExplorer extends MapNodeComposite {
     public void addChild(MapNode child) {
         if (child != null &&  child instanceof Project){
             Project project = (Project) child;
+            child.setParent(this);
             if (!this.getChildren().contains(project)){
                 this.getChildren().add(project);
             }

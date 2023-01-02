@@ -48,10 +48,6 @@ public class StateManager {
         this.currentState = moveState;
     }
 
-
-
-
-
     public State getCurrentState(){
         return currentState;
     }

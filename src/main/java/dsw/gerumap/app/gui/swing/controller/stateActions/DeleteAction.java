@@ -1,6 +1,9 @@
 package main.java.dsw.gerumap.app.gui.swing.controller.stateActions;
 
+import main.java.dsw.gerumap.app.core.ApplicationFramework;
 import main.java.dsw.gerumap.app.gui.swing.MapView;
+import main.java.dsw.gerumap.app.gui.swing.commands.AbstractCommand;
+import main.java.dsw.gerumap.app.gui.swing.commands.implementation.RemoveElementCommand;
 import main.java.dsw.gerumap.app.gui.swing.controller.actions.AbstractGerumapAction;
 import main.java.dsw.gerumap.app.gui.swing.view.MainFrame;
 import main.java.dsw.gerumap.app.gui.swing.view.visual.Concept;
@@ -31,7 +34,7 @@ public class DeleteAction extends AbstractGerumapAction {
         List<ElementPainter> nova = new ArrayList<>();
 
         MapView map = MainFrame.getInstance().getProjectView().getMapView();
-        for(ElementPainter p : map.getPainters()){
+        for(ElementPainter p : map.getMindMap().getPainters()){
             for(Element el : map.getSelectedItems().getElements()){
                 if(p.getElement().equals(el)){
                     if(p.getElement() instanceof Concept) {
@@ -44,16 +47,18 @@ public class DeleteAction extends AbstractGerumapAction {
                 }
             }
         }
-        for(ElementPainter n : nova){
-            map.getMindMap().removeChild(n.getElement());
-            map.getSelectedItems().getElements().remove(n.getElement());
-            map.getPainters().remove(n);
-        }
+
+        AbstractCommand command = new RemoveElementCommand(nova, map);
+
+        ApplicationFramework.getInstance().getGui().getCommandManager().addCommand(command);
+
+//        for(ElementPainter n : nova){
+//            map.getMindMap().removeChild(n.getElement());
+//            map.getSelectedItems().getElements().remove(n.getElement());
+//            map.getPainters().remove(n);
+//        }
 
 
         MainFrame.getInstance().getProjectView().startDeleteState();
     }
-
-
-
 }

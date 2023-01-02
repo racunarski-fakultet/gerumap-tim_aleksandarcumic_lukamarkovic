@@ -1,30 +1,30 @@
 package main.java.dsw.gerumap.app.gui.swing.tree;
 
 import main.java.dsw.gerumap.app.core.ApplicationFramework;
+import main.java.dsw.gerumap.app.gui.swing.commands.AbstractCommand;
+import main.java.dsw.gerumap.app.gui.swing.commands.implementation.AddChildCommand;
+import main.java.dsw.gerumap.app.gui.swing.commands.implementation.RemoveChildCommand;
 import main.java.dsw.gerumap.app.gui.swing.tree.model.MapTreeItem;
+import main.java.dsw.gerumap.app.gui.swing.tree.model.MapTreeModel;
 import main.java.dsw.gerumap.app.gui.swing.tree.view.MapTreeView;
-import main.java.dsw.gerumap.app.message.EventType;
-import main.java.dsw.gerumap.app.core.MessageGenerator;
 import main.java.dsw.gerumap.app.repository.composite.MapNode;
 import main.java.dsw.gerumap.app.repository.composite.MapNodeComposite;
 import main.java.dsw.gerumap.app.repository.factory.NodeFactory;
 import main.java.dsw.gerumap.app.repository.factory.factoryImplementation.utils.FactoryUtils;
-import main.java.dsw.gerumap.app.repository.implementation.MindMap;
+import main.java.dsw.gerumap.app.repository.implementation.Project;
 import main.java.dsw.gerumap.app.repository.implementation.ProjectExplorer;
 
 import javax.swing.*;
-import javax.swing.tree.DefaultTreeModel;
 
 public class MapTreeImplementation implements MapTree {
 
-    MessageGenerator mg;
     private MapTreeView treeView;
-    private DefaultTreeModel treeModel;
+    private MapTreeModel treeModel;
 
     @Override
     public MapTreeView generateTree(ProjectExplorer projectExplorer) {
         MapTreeItem root = new MapTreeItem(projectExplorer);
-        treeModel = new DefaultTreeModel(root);
+        treeModel = new MapTreeModel(root);
         treeView = new MapTreeView(treeModel);
         return treeView;
     }
@@ -34,32 +34,50 @@ public class MapTreeImplementation implements MapTree {
     @Override
     public void addChild(MapTreeItem parent){
 
-        if (!(parent.getMapNode() instanceof MapNodeComposite)) {
-            ApplicationFramework.getInstance().getMg().generate(EventType.CANNOTADDCHILD);
+        if (!((parent.getMapNode()) instanceof MapNodeComposite)) {
             return;
         }
         MapNode child = createChild(parent.getMapNode());
-        parent.add(new MapTreeItem(child));
-        ((MapNodeComposite) parent.getMapNode()).addChild(child);
+        AbstractCommand command = new AddChildCommand(parent, new MapTreeItem(child));
+        ApplicationFramework.getInstance().getGui().getCommandManager().addCommand(command);
         treeView.expandPath(treeView.getSelectionPath());
         SwingUtilities.updateComponentTreeUI(treeView);
     }
 
     @Override
-    public void removeChild(MapTreeItem child){
-        if(child.getMapNode() instanceof ProjectExplorer) {
-            ApplicationFramework.getInstance().getMg().generate(EventType.DELETEPROJEXPL);
-            return;
-        }
-        child.removeAllChildren();
-        child.removeFromParent();
-        SwingUtilities.updateComponentTreeUI(treeView);
+    public MapTreeView getTreeView() {
+        return treeView;
+    }
 
+    @Override
+    public void removeChild(MapTreeItem child){
+//        if(child.getMapNode() instanceof ProjectExplorer) {
+//            ApplicationFramework.getInstance().getMg().generate(EventType.DELETEPROJEXPL);
+//            return;
+//        }
+        MapTreeItem parent = (MapTreeItem) child.getParent();
+        AbstractCommand command = new RemoveChildCommand(parent, child);
+//        child.removeAllChildren();
+//        child.removeFromParent();
+        ApplicationFramework.getInstance().getGui().getCommandManager().addCommand(command);
+        SwingUtilities.updateComponentTreeUI(treeView);
     }
 
     @Override
     public MapTreeItem getSelectedNode() {
         return (MapTreeItem) treeView.getLastSelectedPathComponent();
+    }
+
+    @Override
+    public void loadProject(Project node) {
+        MapTreeItem loadedProject = new MapTreeItem(node);
+        treeModel.getRoot().add(loadedProject);
+
+        MapNodeComposite mapNode = (MapNodeComposite) treeModel.getRoot().getMapNode();
+        mapNode.addChild(node);
+
+        treeView.expandPath(treeView.getSelectionPath());
+        SwingUtilities.updateComponentTreeUI(treeView);
     }
 
     private MapNode createChild(MapNode parent) {

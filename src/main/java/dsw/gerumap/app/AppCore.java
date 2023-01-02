@@ -1,15 +1,13 @@
 package main.java.dsw.gerumap.app;
 
-import main.java.dsw.gerumap.app.core.ApplicationFramework;
-import main.java.dsw.gerumap.app.core.Gui;
-import main.java.dsw.gerumap.app.core.MapRepository;
+import main.java.dsw.gerumap.app.core.*;
 import main.java.dsw.gerumap.app.error.ConsoleLogger;
 import main.java.dsw.gerumap.app.error.ErrorLogger;
 import main.java.dsw.gerumap.app.error.FileLogger;
 import main.java.dsw.gerumap.app.gui.swing.SwingGui;
-import main.java.dsw.gerumap.app.core.MessageGenerator;
 import main.java.dsw.gerumap.app.message.implementation.MessageGeneratorImplementation;
 import main.java.dsw.gerumap.app.repository.implementation.MapRepositoryImpl;
+import main.java.dsw.gerumap.app.serializer.GsonSerializer;
 
 public class AppCore extends ApplicationFramework {
 
@@ -40,11 +38,13 @@ public class AppCore extends ApplicationFramework {
         ErrorLogger erC = new ConsoleLogger();
         ErrorLogger erL = new FileLogger();
 
+        Serializer serializer = new GsonSerializer();
+
         mg.addSubscriber(gui);
         mg.addSubscriber(erC);
         mg.addSubscriber(erL);
 
-        appCore.initialise(gui, mapRepository, mg, erC, erL);
+        appCore.initialise(gui, mapRepository, mg, erC, erL, serializer);
         appCore.run();
     }
 

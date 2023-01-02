@@ -33,7 +33,7 @@ public class DeleteState implements State {
     @Override
     public void misKliknut(int x, int y, MapView map) {
 
-        for(ElementPainter p : map.getPainters()){
+        for(ElementPainter p : map.getMindMap().getPainters()){
             Point pos = new Point(x, y);
             if(p.elementAt(pos)){
                 if(p.getElement() instanceof Concept){
@@ -51,7 +51,7 @@ public class DeleteState implements State {
             }
         }
         for(ElementPainter n : toRemove){
-            map.getPainters().remove(n);
+            map.getMindMap().getPainters().remove(n);
         }
         map.repaint();
     }

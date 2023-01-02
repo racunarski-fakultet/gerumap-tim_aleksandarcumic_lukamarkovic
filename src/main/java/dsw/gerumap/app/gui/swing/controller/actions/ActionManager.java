@@ -11,26 +11,22 @@ public class ActionManager {
 
     private ExitAction exitAction;
     private NewProjectAction newProjectAction;
-
     private HelpAction helpAction;
-
     private RemoveAction removeAction;
-
     private RenameAction renameAction;
-
     private AuthorAction authorAction;
-
     private ConceptAction conceptAction;
     private DeleteAction deleteAction;
     private LinkAction linkAction;
     private SelectAction selectAction;
     private MoveAction moveAction;
-
     private ZoomInAction zoomInAction;
-
     private ZoomOutAction zoomOutAction;
-
     private SettingsAction settingsAction;
+    private RedoAction redoAction;
+    private UndoAction undoAction;
+    private SaveAction saveAction;
+    private OpenAction openAction;
 
     public ActionManager(){
         initialiseActions();
@@ -51,6 +47,10 @@ public class ActionManager {
         zoomInAction = new ZoomInAction();
         zoomOutAction = new ZoomOutAction();
         settingsAction = new SettingsAction();
+        redoAction = new RedoAction();
+        undoAction = new UndoAction();
+        saveAction = new SaveAction();
+        openAction = new OpenAction();
     }
 
 }

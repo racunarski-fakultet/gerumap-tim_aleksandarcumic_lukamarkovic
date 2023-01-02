@@ -1,17 +1,27 @@
 package main.java.dsw.gerumap.app.repository.implementation;
 
 
+import lombok.Getter;
+import lombok.Setter;
 import main.java.dsw.gerumap.app.Observer.Subscriber;
+import main.java.dsw.gerumap.app.gui.swing.commands.CommandManager;
 import main.java.dsw.gerumap.app.gui.swing.view.MainFrame;
+import main.java.dsw.gerumap.app.gui.swing.view.visual.painters.ElementPainter;
 import main.java.dsw.gerumap.app.repository.composite.MapNode;
 import main.java.dsw.gerumap.app.repository.composite.MapNodeComposite;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+
+@Getter
+@Setter
 
 public class MindMap extends MapNodeComposite {
 
     private boolean template;
+    private CommandManager commandManager = new CommandManager();
+    private  List<ElementPainter> painters = new ArrayList<>();
     public MindMap(String name, MapNode parent) {
         super(name, parent);
         elements = new ArrayList<>();

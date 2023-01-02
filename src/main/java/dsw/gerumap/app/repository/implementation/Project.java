@@ -17,6 +17,8 @@ public class Project extends MapNodeComposite implements Publisher {
 
     private List<Subscriber> subscribers;
     private String author;
+    protected boolean changed = true;
+    protected String filePath;
 
     public Project(String name, MapNode parent) {
         super(name, parent);
@@ -52,7 +54,7 @@ public class Project extends MapNodeComposite implements Publisher {
         if(subscriber == null){
             return;
         }
-        if(this.subscribers== null){
+        if(this.subscribers == null){
             subscribers = new ArrayList<>();
         }
         if(this.subscribers.contains(subscriber)){
@@ -79,5 +81,11 @@ public class Project extends MapNodeComposite implements Publisher {
 
         for (Subscriber subscriber:subscribers)
             subscriber.update(obj);
+    }
+
+    @Override
+    public void setName(String name) {
+        super.setName(name);
+        changed = true;
     }
 }

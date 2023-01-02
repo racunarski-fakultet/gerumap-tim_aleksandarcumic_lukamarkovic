@@ -19,17 +19,19 @@ public class ApplicationFramework {
 
     protected ErrorLogger cl;
     protected ErrorLogger fl;
+    private Serializer serializer;
 
     public void run (){
         this.gui.start();
     }
 
-    public void initialise (Gui gui, MapRepository mapRepository, MessageGenerator mg, ErrorLogger cl, ErrorLogger fl) {
+    public void initialise (Gui gui, MapRepository mapRepository, MessageGenerator mg, ErrorLogger cl, ErrorLogger fl, Serializer serializer) {
         this.gui = gui;
         this.mapRepository = mapRepository;
         this.mg = mg;
         this.cl = cl;
         this.fl = fl;
+        this.serializer = serializer;
     }
 
 
