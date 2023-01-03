@@ -1,6 +1,10 @@
 package main.java.dsw.gerumap.app.gui.swing.state.model;
 
+import main.java.dsw.gerumap.app.core.ApplicationFramework;
 import main.java.dsw.gerumap.app.gui.swing.MapView;
+import main.java.dsw.gerumap.app.gui.swing.commands.AbstractCommand;
+import main.java.dsw.gerumap.app.gui.swing.commands.implementation.AddConceptCommand;
+import main.java.dsw.gerumap.app.gui.swing.commands.implementation.MoveCommand;
 import main.java.dsw.gerumap.app.gui.swing.state.State;
 import main.java.dsw.gerumap.app.gui.swing.view.visual.Concept;
 import main.java.dsw.gerumap.app.gui.swing.view.visual.Link;
@@ -8,12 +12,16 @@ import main.java.dsw.gerumap.app.gui.swing.view.visual.painters.ElementPainter;
 import main.java.dsw.gerumap.app.gui.swing.view.visual.painters.LinkPainter;
 
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MoveState implements State {
 
     int flag = 0;
     int pocetnoX;
     int pocetnoY;
+
+    List<ElementPainter> stoke = new ArrayList<>();
     @Override
     public void misPovucen(int x, int y, MapView map) {
         if (flag == 1) {
@@ -21,6 +29,8 @@ public class MoveState implements State {
                 if(p.getElement() instanceof Concept){
                     Concept t = (Concept) p.getElement();
                     if (map.getSelectedItems().getElements().contains(t)) {
+                        if(!stoke.contains(p))
+                            stoke.add(p);
                         t.setX(t.getX() - (pocetnoX - x));
                         t.setY(t.getY() - (pocetnoY - y));
                         for(LinkPainter painter : t.getLinkList()){
@@ -45,7 +55,8 @@ public class MoveState implements State {
 
     @Override
     public void misOtpusten(int x, int y, MapView map) {
-
+        AbstractCommand command = new MoveCommand(map, stoke, x, y, pocetnoX, pocetnoY);
+        ApplicationFramework.getInstance().getGui().getCommandManager().addCommand(command);
     }
 
     @Override

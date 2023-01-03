@@ -12,7 +12,7 @@ public class RedoAction extends AbstractGerumapAction{
     public RedoAction(){
         putValue(ACCELERATOR_KEY, KeyStroke.getKeyStroke(
                 KeyEvent.VK_Y, ActionEvent.CTRL_MASK));
-//        putValue(SMALL_ICON, loadIcon("/images/plus.png"));
+        putValue(SMALL_ICON, loadIcon("/images/redo.png"));
         putValue(NAME, "Redo");
         putValue(SHORT_DESCRIPTION, "Redo");
     }

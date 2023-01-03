@@ -35,6 +35,7 @@ public class LinkState implements State {
 
 
         if(c1==null || c2 ==null){
+
             return;
         }
         pos2.setLocation(x, y);
@@ -54,7 +55,10 @@ public class LinkState implements State {
         }
 
         if(c1.equals(c2)){
+
             map.getMindMap().getPainters().remove(linkPainter);
+            map.update(this);
+            return;
         }
 
         for(LinkPainter painter : c1.getLinkList()){
@@ -90,6 +94,9 @@ public class LinkState implements State {
         c1 = null;
         c2 = null;
         nova.clear();
+
+
+
 
         for(ElementPainter p : map.getMindMap().getPainters()){
             if(p.elementAt(pos1)){
