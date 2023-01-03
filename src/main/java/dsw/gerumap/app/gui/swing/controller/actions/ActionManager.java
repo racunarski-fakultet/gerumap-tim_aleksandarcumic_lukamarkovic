@@ -28,6 +28,7 @@ public class ActionManager {
     private SaveAction saveAction;
     private OpenAction openAction;
     private ExportAction exportAction;
+    private CentralConceptAction centralConceptAction;
 
     public ActionManager(){
         initialiseActions();
@@ -53,6 +54,7 @@ public class ActionManager {
         saveAction = new SaveAction();
         openAction = new OpenAction();
         exportAction = new ExportAction();
+        centralConceptAction = new CentralConceptAction();
     }
 
 }
