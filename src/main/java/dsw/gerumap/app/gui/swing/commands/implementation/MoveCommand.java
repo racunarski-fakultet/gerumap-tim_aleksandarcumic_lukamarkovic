@@ -33,7 +33,7 @@ public class MoveCommand extends AbstractCommand {
 
     @Override
     public void doCommand(){
-        System.out.println("aaaaaa");
+
         if (flag > 0) {
             for (ElementPainter p : map.getMindMap().getPainters()) {
                 if (p.getElement() instanceof Concept) {
@@ -54,8 +54,9 @@ public class MoveCommand extends AbstractCommand {
                     }
                 }
             }
-            flag++;
+
         }
+        flag++;
     }
 
     @Override

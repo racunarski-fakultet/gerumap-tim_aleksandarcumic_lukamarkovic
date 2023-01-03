@@ -21,6 +21,8 @@ public class MoveState implements State {
     int pocetnoX;
     int pocetnoY;
 
+    int najprvljeX;
+    int najpvljeY;
     List<ElementPainter> stoke = new ArrayList<>();
     @Override
     public void misPovucen(int x, int y, MapView map) {
@@ -55,7 +57,7 @@ public class MoveState implements State {
 
     @Override
     public void misOtpusten(int x, int y, MapView map) {
-        AbstractCommand command = new MoveCommand(map, stoke, x, y, pocetnoX, pocetnoY);
+        AbstractCommand command = new MoveCommand(map, stoke, x, y, najprvljeX, najpvljeY);
         ApplicationFramework.getInstance().getGui().getCommandManager().addCommand(command);
     }
 
@@ -71,6 +73,8 @@ public class MoveState implements State {
                     if (p.elementAt(point)) {
                         pocetnoX = x;
                         pocetnoY = y;
+                        najprvljeX = x;
+                        najpvljeY = y;
                         flag = 1;
                         break;
                     }else{

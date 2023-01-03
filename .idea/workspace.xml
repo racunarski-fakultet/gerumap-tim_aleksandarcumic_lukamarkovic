@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="77508bf5-ae9d-41c7-bfad-3b2ab65a37d8" name="Changes" comment="export i redu za multi select move kao radi" />
+    <list default="true" id="77508bf5-ae9d-41c7-bfad-3b2ab65a37d8" name="Changes" comment="export radi dojaja">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dsw/gerumap/app/gui/swing/commands/implementation/MoveCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dsw/gerumap/app/gui/swing/commands/implementation/MoveCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dsw/gerumap/app/gui/swing/state/model/MoveState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dsw/gerumap/app/gui/swing/state/model/MoveState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/java/dsw/gerumap/app/gui/swing/commands/implementation/MoveCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/java/dsw/gerumap/app/gui/swing/commands/implementation/MoveCommand.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -113,7 +118,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672705524073</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="export radi dojaja">
+      <created>1672743366393</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1672743366393</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -134,6 +146,7 @@
     <MESSAGE value=":)" />
     <MESSAGE value=":)x2" />
     <MESSAGE value="export i redu za multi select move kao radi" />
-    <option name="LAST_COMMIT_MESSAGE" value="export i redu za multi select move kao radi" />
+    <MESSAGE value="export radi dojaja" />
+    <option name="LAST_COMMIT_MESSAGE" value="export radi dojaja" />
   </component>
 </project>
