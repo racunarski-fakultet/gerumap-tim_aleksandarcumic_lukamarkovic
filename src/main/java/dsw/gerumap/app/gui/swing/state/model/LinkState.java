@@ -45,6 +45,8 @@ public class LinkState implements State {
         for(ElementPainter p : map.getMindMap().getPainters()){
 
             if(p.elementAt(pos2) && p.getElement() instanceof Concept){
+                Concept p1 = (Concept) p.getElement();
+                pos2 = new Point(p1.getX(),p1.getY());
                 linkPainter.setPos2(pos2);
 
                 c2 = (Concept) p.getElement();
@@ -104,7 +106,7 @@ public class LinkState implements State {
                 c2 = (Concept) p.getElement();
 
                 link = new Link("Link + " + map.getMindMap().getChildren().size(), c1.getParent(), Color.BLACK, 2, c1, c2);
-
+                pos1 = new Point(c1.getX(),c1.getY());
                 linkPainter = new LinkPainter(pos1, pos2, link);
                 nova.add(linkPainter);
             }

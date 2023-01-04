@@ -4,17 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="77508bf5-ae9d-41c7-bfad-3b2ab65a37d8" name="Changes" comment="undo redo takodje radi do jaja">
-      <change afterPath="$PROJECT_DIR$/src/main/java/dsw/gerumap/app/gui/swing/controller/stateActions/CentralConceptAction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Images/CenterConcept.png" afterDir="false" />
+    <list default="true" id="77508bf5-ae9d-41c7-bfad-3b2ab65a37d8" name="Changes" comment="centralni pojam prvog reda radi">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dsw/gerumap/app/gui/swing/controller/actions/ActionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dsw/gerumap/app/gui/swing/controller/actions/ActionManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dsw/gerumap/app/gui/swing/view/Palette.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dsw/gerumap/app/gui/swing/view/Palette.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/java/dsw/gerumap/app/gui/swing/controller/actions/ActionManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/java/dsw/gerumap/app/gui/swing/controller/actions/ActionManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/java/dsw/gerumap/app/gui/swing/view/Palette.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/java/dsw/gerumap/app/gui/swing/view/Palette.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/resources/log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/resources/log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dsw/gerumap/app/gui/swing/MapView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dsw/gerumap/app/gui/swing/MapView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dsw/gerumap/app/gui/swing/controller/stateActions/CentralConceptAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dsw/gerumap/app/gui/swing/controller/stateActions/CentralConceptAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dsw/gerumap/app/gui/swing/state/model/LinkState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dsw/gerumap/app/gui/swing/state/model/LinkState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dsw/gerumap/app/gui/swing/view/visual/Concept.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dsw/gerumap/app/gui/swing/view/visual/Concept.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -138,7 +133,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672745086111</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="centralni pojam prvog reda radi">
+      <created>1672769262556</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1672769262556</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -161,6 +163,7 @@
     <MESSAGE value="export i redu za multi select move kao radi" />
     <MESSAGE value="export radi dojaja" />
     <MESSAGE value="undo redo takodje radi do jaja" />
-    <option name="LAST_COMMIT_MESSAGE" value="undo redo takodje radi do jaja" />
+    <MESSAGE value="centralni pojam prvog reda radi" />
+    <option name="LAST_COMMIT_MESSAGE" value="centralni pojam prvog reda radi" />
   </component>
 </project>

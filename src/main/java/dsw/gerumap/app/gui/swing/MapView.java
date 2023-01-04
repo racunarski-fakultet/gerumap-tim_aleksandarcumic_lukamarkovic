@@ -31,26 +31,27 @@ public class MapView extends JPanel implements Subscriber{
 
 
 
-    private JScrollPane scrollPane;
+    //private JScrollPane scrollPane;
 
     private JLabel lbl;
     private int index;
     private SelectedItems selectedItems;
 
     public MapView(MindMap mindMap, int index){
+
         setLayout(new BorderLayout());
         lbl = new JLabel("");
         this.index = index;
         add(lbl,BorderLayout.NORTH);
 
-        scrollPane = new JScrollPane(this,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+        //scrollPane = new JScrollPane(this,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 
 
 
         //add(scrollPane);
 
-
         setMap(mindMap);
+
 
 
         selectedItems = new SelectedItems();

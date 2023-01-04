@@ -18,6 +18,8 @@ public class Concept extends Element {
     private int w = 100, h =  50;
     private int x, y;
 
+    private int nivo=-1;
+
     private List<LinkPainter> linkList;
 
     public Concept(String name, MapNode parent, Color color, int stroke, int x, int y){
