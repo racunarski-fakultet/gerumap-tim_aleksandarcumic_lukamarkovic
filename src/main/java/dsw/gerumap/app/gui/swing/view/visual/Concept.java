@@ -20,7 +20,7 @@ public class Concept extends Element {
 
     private int nivo=-1;
 
-    private List<LinkPainter> linkList;
+    private transient List<LinkPainter> linkList;
 
     public Concept(String name, MapNode parent, Color color, int stroke, int x, int y){
         super(name, parent, color, stroke);

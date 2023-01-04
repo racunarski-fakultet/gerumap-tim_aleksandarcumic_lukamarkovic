@@ -15,9 +15,9 @@ import java.awt.*;
 public class Element extends MapNode {
 
     private int stroke = 2;
-    private Color color = Color.BLACK;
+    private transient Color color = Color.BLACK;
 
-    private Color realColor = Color.BLACK;
+    private transient Color realColor = Color.BLACK;
 
     public Element(String name, MapNode parent, Color color, int stroke){
         super(name, parent);

@@ -14,8 +14,8 @@ import java.awt.*;
 
 public class Link extends Element {
 
-    private Concept from;
-    private Concept to;
+    private transient Concept from;
+    private transient Concept to;
 
     public Link(String s, MapNode parent, Color color, int stroke, Concept to, Concept from) {
         super(s, parent, color, stroke);

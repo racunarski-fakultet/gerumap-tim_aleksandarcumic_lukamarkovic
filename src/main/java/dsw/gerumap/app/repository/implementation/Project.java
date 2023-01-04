@@ -15,7 +15,7 @@ import java.util.List;
 @Setter
 public class Project extends MapNodeComposite implements Publisher {
 
-    private List<Subscriber> subscribers;
+    private transient List<Subscriber> subscribers;
     private String author;
     protected boolean changed = true;
     protected String filePath;

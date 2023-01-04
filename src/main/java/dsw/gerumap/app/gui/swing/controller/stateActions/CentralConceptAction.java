@@ -26,6 +26,7 @@ public class CentralConceptAction extends AbstractGerumapAction {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+
         if(MainFrame.getInstance().getProjectView().getMapView().getSelectedItems().getElements().size() == 1){
 
             for(Element central : MainFrame.getInstance().getProjectView().getMapView().getSelectedItems().getElements()) {
@@ -122,8 +123,14 @@ public class CentralConceptAction extends AbstractGerumapAction {
                 for(ElementPainter p : MainFrame.getInstance().getProjectView().getMapView().getMindMap().getPainters()){
                     if(!(p.getElement() instanceof Concept)) continue;
                     Concept p1 = (Concept) p.getElement();
-                    System.out.println(p1.getNivo());
+//                    System.out.println(p1.getNivo());
                 }
+
+                int hh =25;
+                int ww = 50;
+                int pomozimi =100;
+
+
 
 
                 for (ElementPainter p : MainFrame.getInstance().getProjectView().getMapView().getMindMap().getPainters()) {
@@ -226,7 +233,7 @@ public class CentralConceptAction extends AbstractGerumapAction {
                                 pomoc = 1;
 
 
-                            } else System.out.println("crnja");
+                            }
                         }
 
 
@@ -284,6 +291,7 @@ public class CentralConceptAction extends AbstractGerumapAction {
 //
 //                        }
 
+//                        MainFrame.getInstance().getProjectView().getMapView()
 
 
                     }
@@ -427,6 +435,7 @@ public class CentralConceptAction extends AbstractGerumapAction {
                                                         Point pos2 = new Point(k1.getX(), k1.getY());
                                                         slikar1.setPos2(pos2);
                                                     }
+
                                                 }
 
                                             }else if(p1.getX()<t.getX() && p1.getY() > t.getY()){
@@ -442,6 +451,7 @@ public class CentralConceptAction extends AbstractGerumapAction {
                                                         Point pos2 = new Point(k1.getX(), k1.getY());
                                                         slikar1.setPos2(pos2);
                                                     }
+
                                                 }
 
                                             }else if(p1.getX()<t.getX() && p1.getY() < t.getY()){
@@ -457,35 +467,27 @@ public class CentralConceptAction extends AbstractGerumapAction {
                                                         Point pos2 = new Point(k1.getX(), k1.getY());
                                                         slikar1.setPos2(pos2);
                                                     }
+
                                                 }
+
 
                                             }
 
 
 
 
-//                                            System.out.println(p1.getName() + " " + k1.getName());
-//                                            k1.setY(p1.getY() - 25);
-//                                            k1.setX(p1.getX());
-//
-//                                            if (linkara.getTo().equals(k1)) {
-//                                                Point pos1 = new Point(p1.getX(), p1.getY() - 25);
-//
-//                                                slikar.setPos1(pos1);
-//                                            } else {
-//                                                Point pos2 = new Point(p1.getX(), p1.getY() - 25);
-//                                                slikar.setPos2(pos2);
-//                                            }
-
 
                                         }
+
 
                                     }
                                 }
 
 
                             }
+
                         }
+
                     }
                     if(pomozi==0) break;
                     else red++;
@@ -502,4 +504,5 @@ public class CentralConceptAction extends AbstractGerumapAction {
         }
 
     }
+
 }

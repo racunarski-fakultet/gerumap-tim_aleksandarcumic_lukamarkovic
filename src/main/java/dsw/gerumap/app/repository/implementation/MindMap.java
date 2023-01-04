@@ -21,7 +21,7 @@ public class MindMap extends MapNodeComposite {
 
     private boolean template;
     private CommandManager commandManager = new CommandManager();
-    private  List<ElementPainter> painters = new ArrayList<>();
+    private  transient List<ElementPainter> painters = new ArrayList<>();
     public MindMap(String name, MapNode parent) {
         super(name, parent);
         elements = new ArrayList<>();

@@ -14,8 +14,8 @@ import java.awt.geom.Line2D;
 
 public class LinkPainter extends ElementPainter{
 
-    private Shape shape;
-    private Element element;
+    private transient Shape shape;
+    private transient Element element;
     private Point pos1;
     private Point pos2;
 

@@ -19,4 +19,3 @@ public class ExitAction extends AbstractGerumapAction {
 
 }
 
-//
